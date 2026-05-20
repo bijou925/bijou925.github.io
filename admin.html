@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Admin — Bijou 925</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,sans-serif;background:#f5f5f5;color:#1a1a1a;font-size:14px}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer;font-family:inherit}
+
+    /* ── LOGIN ── */
+    #login-screen{
+      display:flex;align-items:center;justify-content:center;
+      min-height:100vh;
+    }
+    .login-box{
+      background:#fff;border:1px solid #ddd;border-radius:10px;
+      padding:2.5rem 2rem;width:320px;text-align:center;
+    }
+    .login-box h1{font-size:1.4rem;margin-bottom:.3rem}
+    .login-box p{color:#888;font-size:12px;margin-bottom:1.5rem}
+    .login-box input{
+      width:100%;padding:.7rem 1rem;border:1px solid #ddd;border-radius:6px;
+      font-size:14px;margin-bottom:1rem;outline:none;
+    }
+    .login-box input:focus{border-color:#2d5a6e}
+    .btn{
+      width:100%;padding:.75rem;background:#2d5a6e;color:#fff;
+      border:none;border-radius:6px;font-size:14px;font-weight:500;
+    }
+    .btn:hover{background:#1c3d4d}
+    .login-err{color:#c0392b;font-size:12px;margin-top:.6rem;display:none}
+
+    /* ── LAYOUT ── */
+    #app{display:none}
+    .topbar{
+      background:#2d5a6e;color:#fff;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:.9rem 2rem;
+    }
+    .topbar h1{font-size:1.1rem;letter-spacing:.05em}
+    .topbar-right{display:flex;gap:1rem;align-items:center}
+    .save-btn{
+      padding:.5rem 1.2rem;background:#fff;color:#2d5a6e;
+      border:none;border-radius:6px;font-weight:600;font-size:13px;
+    }
+    .save-btn:hover{background:#e8f0f3}
+    .save-btn:disabled{opacity:.4;pointer-events:none}
+    .status-msg{font-size:12px;opacity:.85}
+
+    .container{max-width:1100px;margin:2rem auto;padding:0 1.5rem}
+
+    /* ── TABS ── */
+    .tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .tab{
+      padding:.5rem 1.1rem;border:1px solid #ddd;border-radius:2rem;
+      background:#fff;font-size:13px;color:#555;
+    }
+    .tab.active{background:#2d5a6e;color:#fff;border-color:#2d5a6e}
+    .tab:hover:not(.active){border-color:#2d5a6e;color:#2d5a6e}
+
+    /* ── SECTION ── */
+    .section{display:none}
+    .section.active{display:block}
+
+    /* ── ITEM ROW ── */
+    .item-row{
+      background:#fff;border:1px solid #e0e0e0;border-radius:8px;
+      padding:1rem 1.2rem;margin-bottom:.6rem;
+      display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+    }
+    .item-img{
+      width:52px;height:52px;object-fit:contain;
+      border-radius:5px;border:1px solid #eee;background:#f9f9f9;flex-shrink:0;
+    }
+    .item-name{font-weight:500;flex:1;min-width:140px}
+    .item-code{font-size:11px;color:#888}
+
+    /* stock toggle */
+    .stock-toggle{
+      display:flex;align-items:center;gap:.5rem;
+      padding:.4rem .9rem;border-radius:2rem;border:1px solid;
+      font-size:12px;font-weight:500;white-space:nowrap;
+    }
+    .stock-toggle.in{background:#e8f5e9;border-color:#81c784;color:#2e7d32}
+    .stock-toggle.out{background:#fce4ec;border-color:#e57373;color:#c62828}
+
+    /* price input */
+    .price-wrap{display:flex;align-items:center;gap:.4rem}
+    .price-wrap span{font-size:13px;color:#555}
+    .price-input{
+      width:90px;padding:.35rem .6rem;border:1px solid #ddd;border-radius:5px;
+      font-size:13px;text-align:right;outline:none;
+    }
+    .price-input:focus{border-color:#2d5a6e}
+
+    /* sizes table */
+    .sizes-wrap{width:100%;margin-top:.6rem;padding-top:.6rem;border-top:1px solid #f0f0f0}
+    .sizes-grid{display:flex;gap:.5rem;flex-wrap:wrap}
+    .size-pill{
+      display:flex;align-items:center;gap:.4rem;
+      padding:.3rem .75rem;border-radius:2rem;border:1px solid;
+      font-size:12px;cursor:pointer;user-select:none;
+    }
+    .size-pill.in{background:#e8f5e9;border-color:#81c784;color:#2e7d32}
+    .size-pill.out{background:#fce4ec;border-color:#e57373;color:#c62828;text-decoration:line-through;opacity:.7}
+    .size-price-row{display:flex;align-items:center;gap:.4rem;margin-top:.4rem}
+    .size-label{font-size:11px;color:#888;min-width:60px}
+
+    /* unsaved dot */
+    .unsaved{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e67e22;margin-left:.4rem;vertical-align:middle}
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <h1>Bijou 925</h1>
+    <p>Panel de administración</p>
+    <input type="password" id="pw-input" placeholder="Contraseña" onkeydown="if(event.key==='Enter')tryLogin()"/>
+    <button class="btn" onclick="tryLogin()">Entrar</button>
+    <div class="login-err" id="login-err">Contraseña incorrecta</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="topbar">
+    <h1>Admin — Bijou 925</h1>
+    <div class="topbar-right">
+      <span class="status-msg" id="status-msg"></span>
+      <button class="save-btn" id="save-btn" onclick="saveToGitHub()" disabled>Guardar cambios</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="tabs" id="tabs"></div>
+    <div id="sections"></div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+/* ── CONFIG ── */
+const ADMIN_PASSWORD = 'bijou2025';
+const GH_REPO  = 'bijou925/bijou925.github.io';
+const GH_TOKEN = window.BIJOU_GH_TOKEN || '';
+const STOCK_FILE = 'stock.json';
+
+/* ── LOGIN ── */
+function tryLogin(){
+  if(document.getElementById('pw-input').value === ADMIN_PASSWORD){
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    initApp();
+  } else {
+    document.getElementById('login-err').style.display = 'block';
+  }
+}
+
+/* ── DATA ── */
+/* All products mirrored from index.html */
+const SECTIONS = [
+  {
+    id:'argollas-finas', label:'Argollas Finas',
+    type:'sizes',
+    img:'media/argollas-finas-par.png',
+    sizes:[
+      {l:'N°0 · 8mm',   p:7000},  {l:'N°1 · 10mm',  p:7500},
+      {l:'N°2 · 12mm',  p:8000},  {l:'N°3 · 13mm',  p:8500},
+      {l:'N°4 · 14mm',  p:9000},  {l:'N°5 · 17mm',  p:9500},
+      {l:'N°6 · 20mm',  p:12000}, {l:'N°7 · 24mm',  p:14000},
+      {l:'N°8 · 28mm',  p:16000}, {l:'N°9 · 34mm',  p:20000},
+      {l:'N°10 · 40mm', p:24000}, {l:'N°11 · 44mm', p:26000},
+      {l:'N°12 · 51mm', p:30000}, {l:'N°13 · 57mm', p:34000},
+      {l:'N°14 · 70mm', p:40000},
+    ]
+  },
+  {
+    id:'argollas-gruesas', label:'Argollas Gruesas',
+    type:'sizes',
+    img:'media/argollas-gruesas-detalle.png',
+    sizes:[
+      {l:'N°2 · 2cm',   p:32000}, {l:'N°3 · 2,2cm', p:36000},
+      {l:'N°4 · 2,7cm', p:40000}, {l:'N°5 · 3,3cm', p:52000},
+      {l:'N°6 · 4,5cm', p:60000}, {l:'N°7 · 5,5cm', p:80000},
+      {l:'N°8 · 6,5cm', p:86000}, {l:'N°9 · 7,5cm', p:100000},
+    ]
+  },
+  {
+    id:'bolitas', label:'Bolitas de Plata',
+    type:'sizes',
+    img:'media/aritos-bolita-plata-par.png',
+    sizes:[
+      {l:'2mm',  p:8000},  {l:'2,5mm',p:9000},
+      {l:'3mm',  p:10000}, {l:'4mm',  p:11000},
+      {l:'5mm',  p:12000}, {l:'6mm',  p:14000},
+      {l:'7mm',  p:18000}, {l:'8mm',  p:24000},
+      {l:'9mm',  p:32000},
+    ]
+  },
+  {
+    id:'perlas', label:'Perlas Pegadas',
+    type:'sizes',
+    img:'media/aritos-perlas-pegadas-detalle-1.png',
+    sizes:[
+      {l:'4mm',  p:6600},  {l:'5mm',  p:6800},
+      {l:'6mm',  p:7400},  {l:'7mm',  p:8000},
+      {l:'8mm',  p:8600},  {l:'9mm',  p:9200},
+      {l:'10mm', p:9600},  {l:'12mm', p:10600},
+    ]
+  },
+  {
+    id:'criollos', label:'Criollos',
+    type:'sizes',
+    img:'media/aritos-criollos-pares.png',
+    sizes:[
+      {l:'N°0 · 1,3cm', p:44000}, {l:'N°1 · 1,5cm', p:48000},
+      {l:'N°2 · 1,9cm', p:54000}, {l:'N°3 · 2,2cm', p:58000},
+      {l:'N°4 · 2,5cm', p:62000}, {l:'N°5 · 2,9cm', p:68000},
+    ]
+  },
+  {
+    id:'susanos', label:'Susanos',
+    type:'sizes',
+    img:'media/aritos-susano-par-1.png',
+    sizes:[
+      {l:'Susano 5mm · AR0291',         p:7500},
+      {l:'Susano 5mm Premium · AR0231', p:12000},
+    ]
+  },
+  {
+    id:'variados', label:'Aritos Variados',
+    type:'items',
+    items:[
+      {id:'v-AR0351', n:'Infinito Mini',           img:'aritos-infinito-mini-AR0351',              p:15000},
+      {id:'v-AR0348', n:'Doble Corazón',           img:'aritos-doble-corazon-AR0348',              p:15000},
+      {id:'v-AR0345', n:'Corazón Incompleto',      img:'aritos-corazon-incompleto-AR0345',         p:15000},
+      {id:'v-flor5',  n:'Flor de 5 Pétalos',       img:'aritos-flor-5-petalos',                    p:15000},
+      {id:'v-AR0814', n:'Mariposa',                img:'aritos-mariposa-AR0814',                   p:15000},
+      {id:'v-AR0346', n:'Luna y Estrella',         img:'aritos-luna-y-estrella-AR0346',            p:15000},
+      {id:'v-AR0817', n:'Alitas',                  img:'aritos-alitas-AR0817',                     p:15000},
+      {id:'v-AR0815', n:'Cruz Trabajada',          img:'aritos-cruz-trabajada-AR0815',             p:15000},
+      {id:'v-AR0816', n:'Rama',                    img:'aritos-rama-AR0816',                       p:15000},
+      {id:'v-bicha-o',n:'Bicha Ondeada',           img:'aritos-bicha-ondeada',                     p:15000},
+      {id:'v-AR0329', n:'Cola de Sirena',          img:'aritos-cola-de-sirena-AR0329',             p:15000},
+      {id:'v-vaquita',n:'Vaquita de San Antonio',  img:'aritos-vaquita-de-san-antonio',            p:15000},
+      {id:'v-AR0296', n:'Bicha',                   img:'aritos-bicha-AR0296',                      p:15000},
+      {id:'v-cor-tr', n:'Corazón Trepador',        img:'aritos-corazon-trepador',                  p:15000},
+      {id:'v-AR0813', n:'Estrella Trepador',       img:'aritos-estrella-trepador-AR0813',          p:15000},
+      {id:'v-AR0327', n:'Estrella Mini Trepador',  img:'aritos-estrella-mini-trepador-AR0327',     p:15000},
+      {id:'v-AR0339', n:'Estrella Calada',         img:'aritos-estrella-calada-AR0339',            p:15000},
+      {id:'v-AR0332', n:'Estrella c/ Calados',     img:'aritos-estrella-c-calados-varios-AR0332',  p:15000},
+      {id:'v-AR0324', n:'Flor de Lis',             img:'aritos-flor-de-lis-AR0324',                p:15000},
+      {id:'v-AR0334', n:'Luna Calada',             img:'aritos-luna-calada-AR0334',                p:15000},
+      {id:'v-AR0330', n:'Trébol',                  img:'aritos-trebol-AR0330',                     p:15000},
+      {id:'v-AR0297', n:'Ancla',                   img:'aritos-ancla-AR0297',                      p:15000},
+      {id:'v-nudo-b', n:'Nudo de Bruja',           img:'aritos-nudo-de-bruja',                     p:15000},
+      {id:'v-AR0292', n:'Saturno',                 img:'aritos-saturno-AR0292',                    p:15000},
+      {id:'v-AR0338', n:'Nudito',                  img:'aritos-nudito-AR0338',                     p:15000},
+      {id:'v-AR0295', n:'Medio Sin Fin Trabajado', img:'aritos-medio-sin-fin-trabajado-AR0295',    p:15000},
+      {id:'v-pluma',  n:'Pluma',                   img:'aritos-pluma',                             p:15000},
+      {id:'v-AR0293', n:'Triángulo',               img:'aritos-triangulo-AR0293',                  p:15000},
+      {id:'v-AR0300', n:'Trepador de Triángulo',   img:'aritos-trepador-de-triangulo-AR0300',      p:15000},
+      {id:'v-AR0326', n:'Sol',                     img:'aritos-sol-AR0326',                        p:15000},
+      {id:'v-AR0818', n:'Ramita',                  img:'aritos-ramita-AR0818',                     p:15000},
+      {id:'v-AR0823', n:'Colibrí',                 img:'aritos-colibri-AR0823',                    p:15000},
+      {id:'v-AR0820', n:'Trepador Corazones',      img:'aritos-trepador-corazones-AR0820',         p:15000},
+      {id:'v-AR0822', n:'Flor Aparente',           img:'aritos-flor-aparente-AR0822',              p:15000},
+      {id:'v-AR0282', n:'Flor',                    img:'aritos-flor-AR0282',                       p:15000},
+      {id:'v-AR0287', n:'Ojo Turco',               img:'aritos-ojo-turco-AR0287',                  p:15000},
+      {id:'v-AR0290', n:'Cruz',                    img:'aritos-cruz-AR0290',                       p:15000},
+      {id:'v-AR0281', n:'OM',                      img:'aritos-om-AR0281',                         p:15000},
+      {id:'v-AR0288', n:'Nudito de Bruja',         img:'aritos-nudito-de-bruja-AR0288',            p:15000},
+      {id:'v-AR0828', n:'Luna Calada c/ Estrellas',img:'aritos-luna-calada-con-estrellas-AR0828',  p:15000},
+      {id:'v-AR0824', n:'Delfín',                  img:'aritos-delfin-AR0824',                     p:15000},
+    ]
+  },
+  {
+    id:'esclavas', label:'Esclavas',
+    type:'sizes',
+    img:'media/pulseras-esclavas-set-tamanos.png',
+    sizes:[
+      {l:'4mm · ESCL0091', p:72000},  {l:'5mm · ESCL0092', p:88000},
+      {l:'6mm · ESCL0093', p:100000}, {l:'7mm · ESCL0094', p:120000},
+      {l:'9mm · ESCL0095', p:160000},
+    ]
+  },
+  {
+    id:'rolo', label:'Pulseras Rolo',
+    type:'sizes',
+    img:'media/pulsera-rolo-N000-x19-x21-PUL001-PUL008.png',
+    sizes:[
+      {l:'N°000 X19cm · PUL001', p:28000}, {l:'N°000 X21cm · PUL008', p:34000},
+      {l:'N°00 X19cm · PUL002',  p:36000}, {l:'N°00 X21cm · PUL009',  p:38000},
+      {l:'N°0 X19cm · PUL003',   p:48000}, {l:'N°0 X21cm · PUL010',   p:50000},
+      {l:'N°1 X19cm · PUL004',   p:54000}, {l:'N°1 X21cm · PUL011',   p:58000},
+      {l:'N°2 X19cm · PUL005',   p:70000}, {l:'N°2 X21cm · PUL012',   p:74000},
+      {l:'N°3 X19cm · PUL006',   p:82000}, {l:'N°3 X21cm · PUL013',   p:92000},
+    ]
+  },
+  {
+    id:'pulseras', label:'Pulseras',
+    type:'items',
+    items:[
+      {id:'PLP0125', n:'Corazón Chico PLP0125',      img:'pulsera-corazones-PLP0125-chico',      p:54000},
+      {id:'PLP0142', n:'Corazón Grande PLP0142',     img:'pulsera-corazones-PLP0142-grande',     p:50000},
+      {id:'PLP0126', n:'Corazón Chico II PLP0126',   img:'pulsera-corazones-PLP0126-chico',      p:46000},
+      {id:'PLP0127', n:'Corazón Chico III PLP0127',  img:'pulsera-corazones-PLP0127-chico',      p:42000},
+      {id:'PLP0146', n:'PLP0146',                    img:'pulsera-corazones-PLP0146',            p:60000},
+      {id:'PLP0028', n:'PLP0028',                    img:'pulsera-corazones-PLP0028',            p:48000},
+      {id:'PLP0029', n:'PLP0029',                    img:'pulsera-corazones-PLP0029',            p:48000},
+      {id:'PLP0020', n:'PLP0020',                    img:'pulsera-PLP0020-a',                    p:48000},
+      {id:'PLP0059', n:'PLP0059',                    img:'pulsera-PLP0059',                      p:60000},
+      {id:'PLP0119', n:'PLP0119',                    img:'pulsera-PLP0119',                      p:44000},
+      {id:'PLP0033', n:'PLP0033',                    img:'pulsera-PLP0033',                      p:36000},
+      {id:'PLP0061', n:'PLP0061',                    img:'pulsera-PLP0061-x19',                  p:76000},
+      {id:'PHP0003', n:'Fina PHP0003',               img:'pulsera-PHP0003-PHP0002-fina',         p:56000},
+      {id:'EVA0015', n:'Gruesa EVA0015',             img:'pulsera-EVA0015-EVA0016-gruesa',       p:76000},
+      {id:'EVA0010', n:'Fina EVA0010',               img:'pulsera-EVA0010-EVA0011-fina',         p:76000},
+      {id:'EVA0013', n:'EVA0013',                    img:'pulsera-EVA0013-EVA0014',              p:76000},
+      {id:'EVA0022', n:'EVA0022',                    img:'pulsera-EVA0022',                      p:58000},
+      {id:'EVA0020', n:'EVA0020',                    img:'pulsera-EVA0020',                      p:72000},
+      {id:'EVA0019', n:'EVA0019',                    img:'pulsera-EVA0019',                      p:72000},
+      {id:'EVA0021', n:'EVA0021',                    img:'pulsera-EVA0021',                      p:64000},
+      {id:'EVA0018', n:'EVA0018',                    img:'pulsera-EVA0018',                      p:58000},
+      {id:'PLP0237', n:'Con Perla PLP0237',          img:'pulsera-PLP0237-perla',                p:58000},
+      {id:'PLP0236', n:'PLP0236',                    img:'pulsera-PLP0236-bolitas',              p:36000},
+      {id:'PLP0148', n:'PLP0148 Pandora',            img:'pulsera-PLP0148-pandora',              p:100000},
+      {id:'PLP0213', n:'PLP0213',                    img:'pulsera-PLP0213-bolitas',              p:38000},
+      {id:'PLP0212', n:'PLP0212',                    img:'pulsera-PLP0212-bolitas',              p:46000},
+      {id:'PLP0211', n:'PLP0211',                    img:'pulsera-PLP0211-bolitas',              p:30000},
+      {id:'PLP0220', n:'PLP0220',                    img:'pulsera-PLP0220-bolitas',              p:30000},
+      {id:'PLP0217', n:'PLP0217',                    img:'pulsera-PLP0217-bolitas',              p:26000},
+      {id:'PLP0214', n:'PLP0214',                    img:'pulsera-PLP0214-bolitas',              p:30000},
+      {id:'PLP0216', n:'PLP0216',                    img:'pulsera-PLP0216-elastizada',           p:38000},
+      {id:'PLP0215', n:'PLP0215',                    img:'pulsera-PLP0215-bolitas',              p:30000},
+      {id:'PLP0221', n:'PLP0221',                    img:'pulsera-PLP0221-bolitas',              p:20000},
+      {id:'PLP0152', n:'Elastizada PLP0152',         img:'pulsera-PLP0152-elastizada',           p:40000},
+      {id:'PLP0162', n:'Elastizada PLP0162',         img:'pulsera-PLP0162-elastizada',           p:40000},
+      {id:'PLP0163', n:'Elastizada PLP0163',         img:'pulsera-PLP0163-elastizada',           p:40000},
+      {id:'PLP0159', n:'Elastizada PLP0159',         img:'pulsera-PLP0159-elastizada',           p:40000},
+      {id:'PLP0170', n:'PLP0170',                    img:'pulsera-PLP0170',                      p:40000},
+      {id:'PLP0155', n:'PLP0155',                    img:'pulsera-PLP0155-bolitas',              p:52000},
+    ]
+  },
+];
+
+/* ── STATE ── */
+let stockData = {};   // loaded from stock.json
+let dirty = false;
+
+function markDirty(){
+  dirty = true;
+  document.getElementById('save-btn').disabled = false;
+  document.getElementById('status-msg').textContent = 'Cambios sin guardar';
+}
+
+function fmt(n){ return '$' + n.toLocaleString('es-AR'); }
+
+/* ── INIT ── */
+async function initApp(){
+  setStatus('Cargando stock…');
+  await loadStock();
+  renderTabs();
+  renderSections();
+  setStatus('');
+}
+
+/* ── LOAD stock.json from GitHub ── */
+async function loadStock(){
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${STOCK_FILE}`, {
+      headers:{ Authorization:`token ${GH_TOKEN}`, Accept:'application/vnd.github.v3+json' }
+    });
+    if(res.ok){
+      const json = await res.json();
+      stockData = JSON.parse(atob(json.content));
+    } else {
+      stockData = {};
+    }
+  } catch(e){
+    stockData = {};
+  }
+}
+
+/* ── GET stock value ── */
+function isInStock(id){ return stockData[id]?.stock !== false; }
+function getPrice(id, defaultPrice){
+  return stockData[id]?.price ?? defaultPrice;
+}
+
+/* ── SET stock ── */
+function setStock(id, val){
+  if(!stockData[id]) stockData[id] = {};
+  stockData[id].stock = val;
+  markDirty();
+}
+function setPrice(id, val){
+  if(!stockData[id]) stockData[id] = {};
+  stockData[id].price = val;
+  markDirty();
+}
+
+/* ── SAVE to GitHub ── */
+async function saveToGitHub(){
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true;
+  setStatus('Guardando…');
+
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(stockData, null, 2))));
+
+  // get current SHA
+  let sha = null;
+  try {
+    const r = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${STOCK_FILE}`, {
+      headers:{ Authorization:`token ${GH_TOKEN}`, Accept:'application/vnd.github.v3+json' }
+    });
+    if(r.ok){ const j = await r.json(); sha = j.sha; }
+  } catch(e){}
+
+  const body = { message:'Admin: update stock', content };
+  if(sha) body.sha = sha;
+
+  const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${STOCK_FILE}`, {
+    method:'PUT',
+    headers:{
+      Authorization:`token ${GH_TOKEN}`,
+      Accept:'application/vnd.github.v3+json',
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+
+  if(res.ok){
+    dirty = false;
+    setStatus('✓ Guardado — el sitio se actualiza en ~1 min');
+    setTimeout(() => setStatus(''), 4000);
+  } else {
+    setStatus('✗ Error al guardar');
+    btn.disabled = false;
+  }
+}
+
+function setStatus(msg){ document.getElementById('status-msg').textContent = msg; }
+
+/* ── RENDER TABS ── */
+function renderTabs(){
+  const tabsEl = document.getElementById('tabs');
+  SECTIONS.forEach((sec, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab' + (i===0?' active':'');
+    btn.textContent = sec.label;
+    btn.onclick = () => switchTab(sec.id);
+    tabsEl.appendChild(btn);
+  });
+}
+
+function switchTab(id){
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('active', SECTIONS[i].id === id);
+  });
+  document.querySelectorAll('.section').forEach(s => {
+    s.classList.toggle('active', s.dataset.id === id);
+  });
+}
+
+/* ── RENDER SECTIONS ── */
+function renderSections(){
+  const container = document.getElementById('sections');
+  SECTIONS.forEach((sec, i) => {
+    const div = document.createElement('div');
+    div.className = 'section' + (i===0?' active':'');
+    div.dataset.id = sec.id;
+
+    if(sec.type === 'sizes') div.innerHTML = renderSizesSection(sec);
+    else                      div.innerHTML = renderItemsSection(sec);
+
+    container.appendChild(div);
+    attachEvents(div, sec);
+  });
+}
+
+/* ── SIZES SECTION (argollas, bolitas, etc.) ── */
+function renderSizesSection(sec){
+  const inStock = isInStock(sec.id);
+  return `
+    <div class="item-row">
+      <img class="item-img" src="${sec.img}" alt="${sec.label}"/>
+      <div class="item-name">${sec.label}</div>
+      <button class="stock-toggle ${inStock?'in':'out'}" data-id="${sec.id}" data-type="cat">
+        ${inStock ? '✓ En stock' : '✗ Sin stock'}
+      </button>
+    </div>
+    <div class="item-row" style="flex-direction:column;align-items:flex-start">
+      <div style="font-weight:500;margin-bottom:.7rem">Talles y precios</div>
+      <div class="sizes-grid">
+        ${sec.sizes.map((sz, idx) => {
+          const key = `${sec.id}__${idx}`;
+          const inSz = isInStock(key);
+          const price = getPrice(key, sz.p);
+          return `
+            <div style="display:flex;flex-direction:column;gap:.3rem;align-items:flex-start">
+              <div class="size-pill ${inSz?'in':'out'}" data-id="${key}" data-type="size">
+                ${inSz?'✓':'✗'} ${sz.l}
+              </div>
+              <div class="size-price-row">
+                <span class="size-label">Precio:</span>
+                <input class="price-input" type="number" value="${price}" data-id="${key}" data-default="${sz.p}" step="100"/>
+              </div>
+            </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+}
+
+/* ── ITEMS SECTION (variados, pulseras) ── */
+function renderItemsSection(sec){
+  return sec.items.map(item => {
+    const inStock = isInStock(item.id);
+    const price   = getPrice(item.id, item.p);
+    return `
+      <div class="item-row">
+        <img class="item-img" src="media/${item.img}.png" alt="${item.n}"/>
+        <div style="flex:1;min-width:120px">
+          <div class="item-name">${item.n}</div>
+          <div class="item-code">${item.id}</div>
+        </div>
+        <div class="price-wrap">
+          <span>$</span>
+          <input class="price-input" type="number" value="${price}" data-id="${item.id}" data-default="${item.p}" step="100" style="width:100px"/>
+        </div>
+        <button class="stock-toggle ${inStock?'in':'out'}" data-id="${item.id}" data-type="item">
+          ${inStock ? '✓ En stock' : '✗ Sin stock'}
+        </button>
+      </div>`;
+  }).join('');
+}
+
+/* ── ATTACH EVENTS ── */
+function attachEvents(div, sec){
+  // stock toggle buttons
+  div.querySelectorAll('.stock-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      const cur = isInStock(id);
+      setStock(id, !cur);
+      btn.className = 'stock-toggle ' + (!cur?'in':'out');
+      btn.textContent = !cur ? '✓ En stock' : '✗ Sin stock';
+    });
+  });
+
+  // size pills toggle
+  div.querySelectorAll('.size-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const id = pill.dataset.id;
+      const cur = isInStock(id);
+      setStock(id, !cur);
+      pill.className = 'size-pill ' + (!cur?'in':'out');
+      pill.textContent = (!cur?'✓ ':'✗ ') + pill.textContent.trim().slice(2);
+    });
+  });
+
+  // price inputs
+  div.querySelectorAll('.price-input').forEach(input => {
+    input.addEventListener('change', () => {
+      const id = input.dataset.id;
+      const val = parseInt(input.value, 10);
+      if(!isNaN(val) && val > 0) setPrice(id, val);
+    });
+  });
+}
+</script>
+<script src="admin-config.js"></script>
+</body>
+</html>
