@@ -496,6 +496,20 @@ PULSERAS — cards:
     }
 
     /* =========================================================
+       OUT OF STOCK
+    ========================================================= */
+    .pcard.oos{opacity:.55;pointer-events:none}
+    .pcard.oos:hover{box-shadow:none;transform:none;border-color:var(--border)}
+    .oos-badge{
+      display:inline-block;
+      background:#e53935;color:#fff;
+      font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+      padding:.25rem .65rem;border-radius:2rem;
+      margin-bottom:.3rem;
+    }
+    .btn-primary:disabled{opacity:.4;pointer-events:none}
+
+    /* =========================================================
        PRODUCT CARD
     ========================================================= */
     .pcard{
@@ -1321,6 +1335,8 @@ function afSync(){
   const idx = $('af-sel').value;
   const it  = AF[idx];
   $('af-price').textContent = fmt(livePrice('argollas-finas__' + idx, it.p));
+  const inSt = liveInStock('argollas-finas__' + idx);
+  $('af-sel').closest('.sel-ui').querySelector('.btn-primary').disabled = !inSt;
 }
 function afAdd(){
   const idx = $('af-sel').value;
@@ -1344,6 +1360,8 @@ function agSync(){
   const it  = AG[idx];
   $('ag-price').textContent = fmt(livePrice('argollas-gruesas__' + idx, it.p));
   $('ag-code').textContent  = it.c;
+  const inSt = liveInStock('argollas-gruesas__' + idx);
+  $('ag-sel').closest('.sel-ui').querySelector('.btn-primary').disabled = !inSt;
 }
 function agAdd(){
   const idx = $('ag-sel').value;
@@ -1364,6 +1382,8 @@ function bolSync(){
   const it  = BOL[idx];
   $('bol-price').textContent = fmt(livePrice('bolitas__' + idx, it.p));
   $('bol-code').textContent  = it.c;
+  const inSt = liveInStock('bolitas__' + idx);
+  $('bol-sel').closest('.sel-ui').querySelector('.btn-primary').disabled = !inSt;
 }
 function bolAdd(){
   const idx = $('bol-sel').value;
@@ -1388,6 +1408,8 @@ function perUpdate(){
   const it    = PER[idx];
   $('per-price').textContent = fmt(livePrice('perlas__' + idx, it.p));
   $('per-code').textContent  = color === 'Blanco' ? it.cb : it.ca;
+  const inSt = liveInStock('perlas__' + idx);
+  $('per-size').closest('.sel-ui').querySelector('.btn-primary').disabled = !inSt;
 }
 function perAdd(){
   const color = $('per-color').value;
@@ -1411,6 +1433,8 @@ function criSync(){
   const it  = CRI[idx];
   $('cri-price').textContent = fmt(livePrice('criollos__' + idx, it.p));
   $('cri-code').textContent  = it.c;
+  const inSt = liveInStock('criollos__' + idx);
+  $('cri-sel').closest('.sel-ui').querySelector('.btn-primary').disabled = !inSt;
 }
 function criAdd(){
   const idx = $('cri-sel').value;
@@ -1428,6 +1452,8 @@ function susUpdate(){
   const it  = SUS[idx];
   $('sus-price').textContent = fmt(livePrice('susanos__' + idx, it.p));
   $('sus-code').textContent  = it.c;
+  const inSt = liveInStock('susanos__' + idx);
+  $('sus-sel').closest('.sel-ui').querySelector('.btn-primary').disabled = !inSt;
 }
 function susAdd(){
   const idx = $('sus-sel').value;
@@ -1444,6 +1470,8 @@ const ESCL = [
 function esclUpdate(){
   const idx = $('escl-sel').value;
   $('escl-price').textContent = fmt(livePrice('esclavas__' + idx, ESCL[idx].p));
+  const inSt = liveInStock('esclavas__' + idx);
+  $('escl-sel').closest('.sel-ui').querySelector('.btn-primary').disabled = !inSt;
 }
 function esclAdd(){
   const idx = $('escl-sel').value;
@@ -1476,6 +1504,8 @@ function roloUpdate(){
   const c   = roloLen === 19 ? it.c19 : it.c21;
   $('rolo-price').textContent = fmt(p);
   $('rolo-code').textContent  = c;
+  const inSt = liveInStock(stockKey);
+  $('rolo-grosor').closest('.sel-ui').querySelector('.btn-primary').disabled = !inSt;
   const ri = document.querySelector('.single-img img[alt="Pulsera Rolo"]');
   if(ri) ri.src = 'media/' + it.img + '.png';
 }
@@ -1538,13 +1568,15 @@ function buildVariado(v){
   const sn    = v.n.replace(/'/g,"\\'");
   const vKey  = 'v-' + (v.c || v.img);
   const price = livePrice(vKey, 15000);
-  return `<div class="pcard fi">
+  const inStock = liveInStock(vKey);
+  return `<div class="pcard fi${inStock ? '' : ' oos'}">
   <div class="pcard-img"><img src="media/${v.img}.png" alt="${v.n}" loading="lazy"/></div>
   <div class="pcard-body">
+    ${!inStock ? '<span class="oos-badge">Sin stock</span>' : ''}
     <div class="pcard-name">${v.n}</div>
     <div class="pcard-code">${v.c || '&nbsp;'}</div>
     <div class="pcard-price">${fmt(price)}</div>
-    <button class="btn-primary" onclick="cartAdd('${sn}','${v.c}',${price},'media/${v.img}.png');flash(this)">Agregar al carrito</button>
+    <button class="btn-primary" ${inStock ? `onclick="cartAdd('${sn}','${v.c}',${price},'media/${v.img}.png');flash(this)"` : 'disabled'}>Agregar al carrito</button>
   </div>
 </div>`;
 }
@@ -1606,19 +1638,21 @@ function buildPulsera(p){
   const hasSizes = p.p21 !== undefined;
   const sn = p.n.replace(/'/g,"\\'");
   const sc = p.c.replace(/'/g,"\\'");
+  const inStock = liveInStock(p.c);
   const pillsHTML = hasSizes ? `
     <div class="pills">
       <button class="pill on" data-sz="19" onclick="pSz(this)">X19 cm</button>
       <button class="pill" data-sz="21" onclick="pSz(this)">X21 cm</button>
     </div>` : '';
-  return `<div class="pcard fi" data-p19="${p.p19}" data-p21="${p.p21||p.p19}" data-pn="${sn}" data-pc="${sc}" data-pi="${p.img}">
+  return `<div class="pcard fi${inStock ? '' : ' oos'}" data-p19="${p.p19}" data-p21="${p.p21||p.p19}" data-pn="${sn}" data-pc="${sc}" data-pi="${p.img}">
   <div class="pcard-img"><img src="media/${p.img}.png" alt="${p.n}" loading="lazy"/></div>
   <div class="pcard-body">
+    ${!inStock ? '<span class="oos-badge">Sin stock</span>' : ''}
     <div class="pcard-name">${p.n}</div>
     <div class="pcard-code">${p.c}</div>
     ${pillsHTML}
     <div class="pcard-price" data-live-price>${fmt(p.p19)}</div>
-    <button class="btn-primary" onclick="pAdd(this)">Agregar al carrito</button>
+    <button class="btn-primary" ${inStock ? 'onclick="pAdd(this)"' : 'disabled'}>Agregar al carrito</button>
   </div>
 </div>`;
 }
@@ -1673,15 +1707,32 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadLiveStock();
 
   /* populate selects */
-  function fillSel(id, data){ const s = $(id); data.forEach((it,i) => { const o = document.createElement('option'); o.value=i; o.textContent=it.l||it.label||it.l; s.appendChild(o); }); }
-  fillSel('af-sel',  AF);
-  fillSel('ag-sel',  AG.map(x => ({l:x.l})));
-  fillSel('bol-sel', BOL.map(x => ({l:x.l})));
-  fillSel('cri-sel', CRI.map(x => ({l:x.l})));
+  function fillSel(id, data, catId){
+    const s = $(id);
+    data.forEach((it,i) => {
+      const o = document.createElement('option');
+      o.value = i;
+      const inSt = liveInStock(catId + '__' + i);
+      o.textContent = (it.l||it.label) + (inSt ? '' : ' (Sin stock)');
+      o.dataset.instock = inSt ? '1' : '0';
+      s.appendChild(o);
+    });
+  }
+  fillSel('af-sel',  AF,  'argollas-finas');
+  fillSel('ag-sel',  AG.map(x=>({l:x.l})), 'argollas-gruesas');
+  fillSel('bol-sel', BOL.map(x=>({l:x.l})), 'bolitas');
+  fillSel('cri-sel', CRI.map(x=>({l:x.l})), 'criollos');
 
   /* Perlas size select */
   const perSel = $('per-size');
-  PER.forEach((it,i) => { const o = document.createElement('option'); o.value=i; o.textContent=it.l; perSel.appendChild(o); });
+  PER.forEach((it,i) => {
+    const o = document.createElement('option');
+    o.value = i;
+    const inSt = liveInStock('perlas__' + i);
+    o.textContent = it.l + (inSt ? '' : ' (Sin stock)');
+    o.dataset.instock = inSt ? '1' : '0';
+    perSel.appendChild(o);
+  });
 
   /* Apply live price overrides to selector initial display */
   afSync(); agSync(); bolSync(); criSync(); perUpdate(); susUpdate(); esclUpdate(); roloUpdate();
@@ -1711,23 +1762,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  /* hide sections marked out of stock */
-  const secMap = {
-    'argollas-finas':   'argollas-finas',
-    'argollas-gruesas': 'argollas-gruesas',
-    'bolitas':          'bolitas',
-    'perlas':           'perlas',
-    'criollos':         'criollos',
-    'susanos':          'susanos',
-    'variados':         'variados',
-    'esclavas':         null,
-    'rolo':             null,
-    'pulseras':         null,
-  };
-  Object.entries(secMap).forEach(([stockId, anchorId]) => {
-    if(!liveInStock(stockId) && anchorId){
-      const el = document.getElementById(anchorId);
-      if(el) el.style.display = 'none';
+  /* gray out entire sections marked out of stock */
+  ['argollas-finas','argollas-gruesas','bolitas','perlas','criollos','susanos','variados'].forEach(id => {
+    if(!liveInStock(id)){
+      const el = document.getElementById(id);
+      if(el){
+        el.style.opacity = '.5';
+        el.style.pointerEvents = 'none';
+      }
     }
   });
 
