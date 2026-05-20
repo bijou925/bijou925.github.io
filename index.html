@@ -1654,7 +1654,7 @@ let _stock = {};
 
 async function loadLiveStock(){
   try {
-    const res = await fetch('https://raw.githubusercontent.com/bijou925/bijou925.github.io/main/stock.json', {cache:'no-cache'});
+    const res = await fetch('https://raw.githubusercontent.com/bijou925/bijou925.github.io/main/stock.json?t=' + Date.now());
     if(res.ok) _stock = await res.json();
   } catch(e){ /* offline or missing — use defaults */ }
 }
@@ -1698,14 +1698,36 @@ document.addEventListener('DOMContentLoaded', async () => {
     .map(v => buildVariado(v)).join('');
 
   const pulGrid = $('grid-pulseras');
-  PULSERAS.forEach(p => {
-    if(p._h){
-      pulGrid.insertAdjacentHTML('beforeend', `<div class="grid-lbl"><h3>${p._h}</h3></div>`);
-    } else {
-      if(!liveInStock(p.c)) return;
-      const overP19 = livePrice(p.c, p.p19);
-      const overP21 = p.p21 ? livePrice(p.c, p.p21) : undefined;
-      pulGrid.insertAdjacentHTML('beforeend', buildPulsera({...p, p19:overP19, p21:overP21}));
+  if(liveInStock('pulseras')){
+    PULSERAS.forEach(p => {
+      if(p._h){
+        pulGrid.insertAdjacentHTML('beforeend', `<div class="grid-lbl"><h3>${p._h}</h3></div>`);
+      } else {
+        if(!liveInStock(p.c)) return;
+        const overP19 = livePrice(p.c, p.p19);
+        const overP21 = p.p21 ? livePrice(p.c, p.p21) : undefined;
+        pulGrid.insertAdjacentHTML('beforeend', buildPulsera({...p, p19:overP19, p21:overP21}));
+      }
+    });
+  }
+
+  /* hide sections marked out of stock */
+  const secMap = {
+    'argollas-finas':   'argollas-finas',
+    'argollas-gruesas': 'argollas-gruesas',
+    'bolitas':          'bolitas',
+    'perlas':           'perlas',
+    'criollos':         'criollos',
+    'susanos':          'susanos',
+    'variados':         'variados',
+    'esclavas':         null,
+    'rolo':             null,
+    'pulseras':         null,
+  };
+  Object.entries(secMap).forEach(([stockId, anchorId]) => {
+    if(!liveInStock(stockId) && anchorId){
+      const el = document.getElementById(anchorId);
+      if(el) el.style.display = 'none';
     }
   });
 
