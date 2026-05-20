@@ -3,7 +3,7 @@
     "stock": true
   },
   "v-AR0351": {
-    "price": 20000
+    "price": 220000
   },
   "v-AR0348": {
     "stock": false
@@ -12,17 +12,17 @@
     "stock": true
   },
   "argollas-gruesas__0": {
-    "stock": false
+    "stock": true
   },
   "argollas-gruesas__1": {
-    "stock": false
+    "stock": true
   },
   "v-AR0345": {
     "price": 21000
   },
   "argollas-finas__0": {
     "price": 800,
-    "stock": false
+    "stock": true
   },
   "argollas-gruesas": {
     "stock": false
