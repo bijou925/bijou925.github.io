@@ -22,5 +22,11 @@
   },
   "argollas-finas__0": {
     "price": 800
+  },
+  "argollas-gruesas": {
+    "stock": false
+  },
+  "bolitas__2": {
+    "stock": false
   }
 }
