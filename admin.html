@@ -111,6 +111,42 @@
 
     /* unsaved dot */
     .unsaved{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e67e22;margin-left:.4rem;vertical-align:middle}
+
+    /* ── ADD PRODUCT FORM ── */
+    .add-form{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:1.5rem;max-width:620px}
+    .add-form h2{font-size:1rem;font-weight:600;margin-bottom:1.2rem;color:#2d5a6e}
+    .form-row{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem}
+    .form-row label{font-size:12px;font-weight:500;color:#555;letter-spacing:.04em;text-transform:uppercase}
+    .form-row input,.form-row select,.form-row textarea{
+      padding:.55rem .8rem;border:1px solid #ddd;border-radius:6px;
+      font-size:13px;font-family:inherit;outline:none;
+    }
+    .form-row input:focus,.form-row select:focus{border-color:#2d5a6e}
+    .form-row textarea{resize:vertical;min-height:70px}
+    .form-row-inline{display:flex;gap:.8rem;flex-wrap:wrap}
+    .form-row-inline .form-row{flex:1;min-width:140px}
+    .sizes-builder{display:flex;flex-direction:column;gap:.5rem;margin-top:.4rem}
+    .size-entry{display:flex;gap:.5rem;align-items:center}
+    .size-entry input{flex:1;padding:.45rem .7rem;border:1px solid #ddd;border-radius:6px;font-size:13px;outline:none}
+    .size-entry input:focus{border-color:#2d5a6e}
+    .rm-size{background:none;border:none;color:#c0392b;font-size:18px;line-height:1;padding:0 4px}
+    .add-size-btn{
+      align-self:flex-start;padding:.4rem .9rem;border:1px dashed #aaa;
+      border-radius:6px;background:none;font-size:12px;color:#666;
+    }
+    .add-size-btn:hover{border-color:#2d5a6e;color:#2d5a6e}
+    .img-preview{width:80px;height:80px;object-fit:contain;border:1px solid #eee;border-radius:6px;background:#f9f9f9;display:none;margin-top:.5rem}
+    .submit-btn{
+      padding:.7rem 1.6rem;background:#2d5a6e;color:#fff;
+      border:none;border-radius:6px;font-size:13px;font-weight:600;
+    }
+    .submit-btn:hover{background:#1c3d4d}
+    .submit-btn:disabled{opacity:.4;pointer-events:none}
+    .add-msg{font-size:13px;margin-top:.7rem;display:none}
+    .add-msg.ok{color:#2e7d32}
+    .add-msg.err{color:#c0392b}
+    .tab-add{background:#2d5a6e;color:#fff;border-color:#2d5a6e}
+    .tab-add:hover{background:#1c3d4d!important;color:#fff!important}
   </style>
 </head>
 <body>
@@ -458,11 +494,18 @@ function renderTabs(){
     btn.onclick = () => switchTab(sec.id);
     tabsEl.appendChild(btn);
   });
+  // Add product tab
+  const addBtn = document.createElement('button');
+  addBtn.className = 'tab tab-add';
+  addBtn.textContent = '+ Agregar Producto';
+  addBtn.onclick = () => switchTab('__add__');
+  tabsEl.appendChild(addBtn);
 }
 
 function switchTab(id){
   document.querySelectorAll('.tab').forEach((t,i) => {
-    t.classList.toggle('active', SECTIONS[i].id === id);
+    const secId = i < SECTIONS.length ? SECTIONS[i].id : '__add__';
+    t.classList.toggle('active', secId === id);
   });
   document.querySelectorAll('.section').forEach(s => {
     s.classList.toggle('active', s.dataset.id === id);
@@ -483,6 +526,14 @@ function renderSections(){
     container.appendChild(div);
     attachEvents(div, sec);
   });
+
+  // Add product section
+  const addDiv = document.createElement('div');
+  addDiv.className = 'section';
+  addDiv.dataset.id = '__add__';
+  addDiv.innerHTML = renderAddSection();
+  container.appendChild(addDiv);
+  attachAddEvents(addDiv);
 }
 
 /* ── SIZES SECTION (argollas, bolitas, etc.) ── */
@@ -539,6 +590,223 @@ function renderItemsSection(sec){
         </button>
       </div>`;
   }).join('');
+}
+
+/* ── ADD PRODUCT SECTION ── */
+function renderAddSection(){
+  const catOptions = SECTIONS.map(s => `<option value="${s.id}">${s.label}</option>`).join('');
+  return `
+    <div class="add-form">
+      <h2>Agregar Nuevo Producto</h2>
+
+      <div class="form-row-inline">
+        <div class="form-row">
+          <label>Nombre</label>
+          <input type="text" id="add-name" placeholder="Ej: Argolla Corazón"/>
+        </div>
+        <div class="form-row">
+          <label>Código / ID</label>
+          <input type="text" id="add-code" placeholder="Ej: AR0900"/>
+        </div>
+      </div>
+
+      <div class="form-row-inline">
+        <div class="form-row">
+          <label>Categoría</label>
+          <select id="add-cat">${catOptions}</select>
+        </div>
+        <div class="form-row">
+          <label>Tipo de producto</label>
+          <select id="add-type" onchange="toggleAddType()">
+            <option value="fixed">Precio fijo</option>
+            <option value="sizes">Con talles</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="add-fixed-block" class="form-row">
+        <label>Precio (CLP)</label>
+        <input type="number" id="add-price" placeholder="15000" step="100"/>
+      </div>
+
+      <div id="add-sizes-block" style="display:none">
+        <div style="font-size:12px;font-weight:500;color:#555;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.5rem">Talles y precios</div>
+        <div class="sizes-builder" id="sizes-builder">
+          <div class="size-entry">
+            <input type="text" placeholder="Talle (Ej: N°1 · 10mm)" style="flex:2"/>
+            <input type="number" placeholder="Precio" style="flex:1" step="100"/>
+            <button class="rm-size" onclick="this.closest('.size-entry').remove()">×</button>
+          </div>
+        </div>
+        <button class="add-size-btn" onclick="addSizeEntry()" style="margin-top:.5rem">+ Agregar talle</button>
+      </div>
+
+      <div class="form-row" style="margin-top:1rem">
+        <label>Imagen (PNG/JPG)</label>
+        <input type="file" id="add-img" accept="image/png,image/jpeg" onchange="previewImg(this)"/>
+        <img class="img-preview" id="add-img-preview" alt="Vista previa"/>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:1rem;margin-top:1.2rem">
+        <button class="submit-btn" id="add-submit-btn" onclick="submitNewProduct()">Agregar Producto</button>
+        <div class="add-msg" id="add-msg"></div>
+      </div>
+    </div>`;
+}
+
+function attachAddEvents(div){
+  // nothing extra needed — all wired via inline onchange/onclick
+}
+
+function toggleAddType(){
+  const type = document.getElementById('add-type').value;
+  document.getElementById('add-fixed-block').style.display = type === 'fixed' ? '' : 'none';
+  document.getElementById('add-sizes-block').style.display = type === 'sizes' ? '' : 'none';
+}
+
+function addSizeEntry(){
+  const builder = document.getElementById('sizes-builder');
+  const entry = document.createElement('div');
+  entry.className = 'size-entry';
+  entry.innerHTML = `
+    <input type="text" placeholder="Talle (Ej: N°1 · 10mm)" style="flex:2"/>
+    <input type="number" placeholder="Precio" style="flex:1" step="100"/>
+    <button class="rm-size" onclick="this.closest('.size-entry').remove()">×</button>`;
+  builder.appendChild(entry);
+}
+
+function previewImg(input){
+  const preview = document.getElementById('add-img-preview');
+  if(input.files && input.files[0]){
+    const reader = new FileReader();
+    reader.onload = e => { preview.src = e.target.result; preview.style.display = 'block'; };
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    preview.style.display = 'none';
+  }
+}
+
+async function submitNewProduct(){
+  const name    = document.getElementById('add-name').value.trim();
+  const code    = document.getElementById('add-code').value.trim();
+  const cat     = document.getElementById('add-cat').value;
+  const type    = document.getElementById('add-type').value;
+  const imgFile = document.getElementById('add-img').files[0];
+  const msgEl   = document.getElementById('add-msg');
+  const btn     = document.getElementById('add-submit-btn');
+
+  msgEl.style.display = 'none';
+
+  if(!name || !code){ showAddMsg('err', 'Completá el nombre y el código.'); return; }
+
+  let price = null;
+  let sizes = null;
+
+  if(type === 'fixed'){
+    price = parseInt(document.getElementById('add-price').value, 10);
+    if(isNaN(price) || price <= 0){ showAddMsg('err', 'Ingresá un precio válido.'); return; }
+  } else {
+    sizes = [];
+    document.querySelectorAll('#sizes-builder .size-entry').forEach(row => {
+      const inputs = row.querySelectorAll('input');
+      const label  = inputs[0].value.trim();
+      const p      = parseInt(inputs[1].value, 10);
+      if(label && !isNaN(p) && p > 0) sizes.push({ l: label, p });
+    });
+    if(sizes.length === 0){ showAddMsg('err', 'Agregá al menos un talle con precio.'); return; }
+  }
+
+  btn.disabled = true;
+  showAddMsg('', 'Guardando…');
+
+  // Upload image to GitHub if provided
+  let imgPath = '';
+  if(imgFile){
+    imgPath = await uploadImageToGitHub(imgFile, code);
+    if(!imgPath){ btn.disabled = false; return; }
+  }
+
+  // Build product entry for stock.json
+  const productId = type === 'fixed' ? code : cat;
+  const newProduct = {
+    _added: true,
+    name,
+    code,
+    category: cat,
+    productType: type,
+    img: imgPath,
+    ...(type === 'fixed' ? { price, stock: true } : { sizes, stock: true })
+  };
+
+  if(!stockData._newProducts) stockData._newProducts = [];
+  stockData._newProducts.push(newProduct);
+  markDirty();
+
+  await saveToGitHub();
+
+  showAddMsg('ok', `✓ Producto "${name}" agregado. Guardá los cambios para publicarlo.`);
+  btn.disabled = false;
+
+  // Reset form
+  document.getElementById('add-name').value = '';
+  document.getElementById('add-code').value = '';
+  document.getElementById('add-price').value = '';
+  document.getElementById('add-img').value = '';
+  document.getElementById('add-img-preview').style.display = 'none';
+  document.getElementById('sizes-builder').innerHTML = `
+    <div class="size-entry">
+      <input type="text" placeholder="Talle (Ej: N°1 · 10mm)" style="flex:2"/>
+      <input type="number" placeholder="Precio" style="flex:1" step="100"/>
+      <button class="rm-size" onclick="this.closest('.size-entry').remove()">×</button>
+    </div>`;
+}
+
+async function uploadImageToGitHub(file, code){
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.onload = async e => {
+      const base64 = e.target.result.split(',')[1];
+      const ext    = file.name.split('.').pop().toLowerCase();
+      const path   = `media/${code.toLowerCase()}.${ext}`;
+
+      // check if file already exists (need SHA to overwrite)
+      let sha = null;
+      try {
+        const check = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${path}`, {
+          headers:{ Authorization:`token ${GH_TOKEN}`, Accept:'application/vnd.github.v3+json' }
+        });
+        if(check.ok){ const j = await check.json(); sha = j.sha; }
+      } catch(e){}
+
+      const body = { message:`Admin: add image ${code}`, content: base64 };
+      if(sha) body.sha = sha;
+
+      const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${path}`, {
+        method:'PUT',
+        headers:{
+          Authorization:`token ${GH_TOKEN}`,
+          Accept:'application/vnd.github.v3+json',
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+
+      if(res.ok){
+        resolve(path);
+      } else {
+        showAddMsg('err', '✗ Error al subir la imagen.');
+        resolve(null);
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function showAddMsg(type, text){
+  const el = document.getElementById('add-msg');
+  el.textContent = text;
+  el.className = 'add-msg' + (type ? ' ' + type : '');
+  el.style.display = text ? 'block' : 'none';
 }
 
 /* ── ATTACH EVENTS ── */
