@@ -1745,22 +1745,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   /* render grids — apply live prices and stock */
   const varGrid = $('grid-variados');
-  varGrid.innerHTML = VARIADOS.filter(v => liveInStock('v-' + (v.c || v.img)))
-    .map(v => buildVariado(v)).join('');
+  varGrid.innerHTML = VARIADOS.map(v => buildVariado(v)).join('');
 
   const pulGrid = $('grid-pulseras');
-  if(liveInStock('pulseras')){
-    PULSERAS.forEach(p => {
-      if(p._h){
-        pulGrid.insertAdjacentHTML('beforeend', `<div class="grid-lbl"><h3>${p._h}</h3></div>`);
-      } else {
-        if(!liveInStock(p.c)) return;
-        const overP19 = livePrice(p.c, p.p19);
-        const overP21 = p.p21 ? livePrice(p.c, p.p21) : undefined;
-        pulGrid.insertAdjacentHTML('beforeend', buildPulsera({...p, p19:overP19, p21:overP21}));
-      }
-    });
-  }
+  PULSERAS.forEach(p => {
+    if(p._h){
+      pulGrid.insertAdjacentHTML('beforeend', `<div class="grid-lbl"><h3>${p._h}</h3></div>`);
+    } else {
+      const overP19 = livePrice(p.c, p.p19);
+      const overP21 = p.p21 ? livePrice(p.c, p.p21) : undefined;
+      pulGrid.insertAdjacentHTML('beforeend', buildPulsera({...p, p19:overP19, p21:overP21}));
+    }
+  });
 
   /* gray out entire sections marked out of stock */
   ['argollas-finas','argollas-gruesas','bolitas','perlas','criollos','susanos','variados'].forEach(id => {
@@ -1769,6 +1765,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       if(el){
         el.style.opacity = '.5';
         el.style.pointerEvents = 'none';
+        const hdr = el.querySelector('.sub-hdr');
+        if(hdr) hdr.insertAdjacentHTML('afterend','<span class="oos-badge" style="display:inline-block;margin-bottom:1rem">Sin stock</span>');
       }
     }
   });
