@@ -3,10 +3,11 @@
     "stock": true
   },
   "v-AR0351": {
-    "price": 220000
+    "price": 15000,
+    "stock": false
   },
   "v-AR0348": {
-    "stock": false
+    "stock": true
   },
   "argollas-finas": {
     "stock": true
@@ -18,7 +19,7 @@
     "stock": true
   },
   "v-AR0345": {
-    "price": 21000
+    "price": 15000
   },
   "argollas-finas__0": {
     "price": 800,
@@ -34,6 +35,6 @@
     "stock": false
   },
   "v-flor5": {
-    "stock": false
+    "stock": true
   }
 }
