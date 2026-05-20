@@ -4,10 +4,11 @@
   },
   "v-AR0351": {
     "price": 15000,
-    "stock": false
+    "stock": true
   },
   "v-AR0348": {
-    "stock": true
+    "stock": true,
+    "price": 100000
   },
   "argollas-finas": {
     "stock": true
@@ -29,12 +30,45 @@
     "stock": false
   },
   "bolitas__2": {
-    "stock": false
+    "stock": true
   },
   "bolitas__0": {
-    "stock": false
+    "stock": true
   },
   "v-flor5": {
+    "stock": true
+  },
+  "argollas-finas__1": {
+    "stock": true
+  },
+  "argollas-finas__2": {
+    "stock": true
+  },
+  "argollas-finas__3": {
+    "stock": true
+  },
+  "argollas-finas__4": {
+    "stock": true
+  },
+  "PLP0125": {
+    "stock": false
+  },
+  "PLP0142": {
+    "stock": false
+  },
+  "PLP0126": {
+    "stock": false
+  },
+  "criollos__1": {
+    "stock": true
+  },
+  "criollos__3": {
+    "stock": true
+  },
+  "criollos__0": {
+    "stock": true
+  },
+  "criollos__2": {
     "stock": true
   }
 }
