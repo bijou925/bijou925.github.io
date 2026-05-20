@@ -18,10 +18,11 @@
     "stock": false
   },
   "v-AR0345": {
-    "price": 20000
+    "price": 21000
   },
   "argollas-finas__0": {
-    "price": 800
+    "price": 800,
+    "stock": false
   },
   "argollas-gruesas": {
     "stock": false
