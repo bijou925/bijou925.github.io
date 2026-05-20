@@ -1,13 +1,14 @@
 {
   "argollas-finas__5": {
-    "stock": true
+    "stock": true,
+    "price": 10500
   },
   "v-AR0351": {
     "price": 15000,
     "stock": true
   },
   "v-AR0348": {
-    "stock": true,
+    "stock": false,
     "price": 100000
   },
   "argollas-finas": {
@@ -20,10 +21,11 @@
     "stock": true
   },
   "v-AR0345": {
-    "price": 15000
+    "price": 15000,
+    "stock": false
   },
   "argollas-finas__0": {
-    "price": 800,
+    "price": 8000,
     "stock": true
   },
   "argollas-gruesas": {
@@ -36,19 +38,23 @@
     "stock": true
   },
   "v-flor5": {
-    "stock": true
+    "stock": false
   },
   "argollas-finas__1": {
-    "stock": true
+    "stock": true,
+    "price": 8500
   },
   "argollas-finas__2": {
-    "stock": true
+    "stock": true,
+    "price": 9000
   },
   "argollas-finas__3": {
-    "stock": true
+    "stock": true,
+    "price": 9500
   },
   "argollas-finas__4": {
-    "stock": true
+    "stock": true,
+    "price": 10000
   },
   "PLP0125": {
     "stock": false
@@ -70,5 +76,74 @@
   },
   "criollos__2": {
     "stock": true
+  },
+  "bolitas": {
+    "stock": false
+  },
+  "v-AR0814": {
+    "stock": false
+  },
+  "v-AR0346": {
+    "stock": false
+  },
+  "v-AR0329": {
+    "stock": false
+  },
+  "v-AR0296": {
+    "stock": false
+  },
+  "v-cor-tr": {
+    "stock": false
+  },
+  "v-AR0339": {
+    "stock": false
+  },
+  "v-AR0330": {
+    "stock": false
+  },
+  "v-AR0297": {
+    "stock": false
+  },
+  "v-nudo-b": {
+    "stock": false
+  },
+  "v-AR0292": {
+    "stock": false
+  },
+  "v-AR0295": {
+    "stock": false
+  },
+  "v-pluma": {
+    "stock": false
+  },
+  "v-AR0293": {
+    "stock": false
+  },
+  "v-AR0326": {
+    "stock": false
+  },
+  "v-AR0820": {
+    "stock": false
+  },
+  "v-AR0822": {
+    "stock": false
+  },
+  "v-AR0282": {
+    "stock": false
+  },
+  "v-AR0290": {
+    "stock": false
+  },
+  "v-AR0281": {
+    "stock": false
+  },
+  "v-AR0288": {
+    "stock": false
+  },
+  "v-AR0828": {
+    "stock": false
+  },
+  "v-AR0824": {
+    "stock": false
   }
 }
