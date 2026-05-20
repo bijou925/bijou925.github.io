@@ -1317,10 +1317,15 @@ const AF = [
   {l:'N°12 · 51mm',p:30000}, {l:'N°13 · 57mm',p:34000},
   {l:'N°14 · 70mm',p:40000},
 ];
-function afSync(){ $('af-price').textContent = fmt(AF[$('af-sel').value].p); }
+function afSync(){
+  const idx = $('af-sel').value;
+  const it  = AF[idx];
+  $('af-price').textContent = fmt(livePrice('argollas-finas__' + idx, it.p));
+}
 function afAdd(){
-  const it = AF[$('af-sel').value];
-  cartAdd('Argollas Finas', it.l, it.p, 'media/argollas-finas-par.png');
+  const idx = $('af-sel').value;
+  const it  = AF[idx];
+  cartAdd('Argollas Finas', it.l, livePrice('argollas-finas__' + idx, it.p), 'media/argollas-finas-par.png');
 }
 
 /* ── Argollas Gruesas ──────────────────────────────────── */
@@ -1335,13 +1340,15 @@ const AG = [
   {l:'N°9 · 7,5cm', c:'AR0063', p:100000},
 ];
 function agSync(){
-  const it = AG[$('ag-sel').value];
-  $('ag-price').textContent = fmt(it.p);
+  const idx = $('ag-sel').value;
+  const it  = AG[idx];
+  $('ag-price').textContent = fmt(livePrice('argollas-gruesas__' + idx, it.p));
   $('ag-code').textContent  = it.c;
 }
 function agAdd(){
-  const it = AG[$('ag-sel').value];
-  cartAdd('Argollas Gruesas', it.l + ' · ' + it.c, it.p, 'media/argollas-gruesas-detalle.png');
+  const idx = $('ag-sel').value;
+  const it  = AG[idx];
+  cartAdd('Argollas Gruesas', it.l + ' · ' + it.c, livePrice('argollas-gruesas__' + idx, it.p), 'media/argollas-gruesas-detalle.png');
 }
 
 /* ── Bolitas de Plata ──────────────────────────────────── */
@@ -1353,13 +1360,15 @@ const BOL = [
   {l:'9mm',   c:'AR0040', p:32000},
 ];
 function bolSync(){
-  const it = BOL[$('bol-sel').value];
-  $('bol-price').textContent = fmt(it.p);
+  const idx = $('bol-sel').value;
+  const it  = BOL[idx];
+  $('bol-price').textContent = fmt(livePrice('bolitas__' + idx, it.p));
   $('bol-code').textContent  = it.c;
 }
 function bolAdd(){
-  const it = BOL[$('bol-sel').value];
-  cartAdd('Bolitas de Plata', it.l + ' · ' + it.c, it.p, 'media/aritos-bolita-plata-par.png');
+  const idx = $('bol-sel').value;
+  const it  = BOL[idx];
+  cartAdd('Bolitas de Plata', it.l + ' · ' + it.c, livePrice('bolitas__' + idx, it.p), 'media/aritos-bolita-plata-par.png');
 }
 
 /* ── Perlas Pegadas ────────────────────────────────────── */
@@ -1375,15 +1384,17 @@ const PER = [
 ];
 function perUpdate(){
   const color = $('per-color').value;
-  const it    = PER[$('per-size').value];
-  $('per-price').textContent = fmt(it.p);
+  const idx   = $('per-size').value;
+  const it    = PER[idx];
+  $('per-price').textContent = fmt(livePrice('perlas__' + idx, it.p));
   $('per-code').textContent  = color === 'Blanco' ? it.cb : it.ca;
 }
 function perAdd(){
   const color = $('per-color').value;
-  const it    = PER[$('per-size').value];
+  const idx   = $('per-size').value;
+  const it    = PER[idx];
   const code  = color === 'Blanco' ? it.cb : it.ca;
-  cartAdd('Perlas Pegadas', it.l + ' · ' + color + ' · ' + code, it.p, 'media/aritos-perlas-pegadas-par.png');
+  cartAdd('Perlas Pegadas', it.l + ' · ' + color + ' · ' + code, livePrice('perlas__' + idx, it.p), 'media/aritos-perlas-pegadas-par.png');
 }
 
 /* ── Criollos ──────────────────────────────────────────── */
@@ -1396,13 +1407,15 @@ const CRI = [
   {l:'N°5 · 2,9cm', c:'AR0069', p:68000},
 ];
 function criSync(){
-  const it = CRI[$('cri-sel').value];
-  $('cri-price').textContent = fmt(it.p);
+  const idx = $('cri-sel').value;
+  const it  = CRI[idx];
+  $('cri-price').textContent = fmt(livePrice('criollos__' + idx, it.p));
   $('cri-code').textContent  = it.c;
 }
 function criAdd(){
-  const it = CRI[$('cri-sel').value];
-  cartAdd('Criollos', it.l + ' · ' + it.c, it.p, 'media/aritos-criollos-pares.png');
+  const idx = $('cri-sel').value;
+  const it  = CRI[idx];
+  cartAdd('Criollos', it.l + ' · ' + it.c, livePrice('criollos__' + idx, it.p), 'media/aritos-criollos-pares.png');
 }
 
 /* ── Susanos ───────────────────────────────────────────── */
@@ -1411,13 +1424,15 @@ const SUS = [
   {l:'Susano 5mm Premium', c:'AR0231', p:12000},
 ];
 function susUpdate(){
-  const it = SUS[$('sus-sel').value];
-  $('sus-price').textContent = fmt(it.p);
+  const idx = $('sus-sel').value;
+  const it  = SUS[idx];
+  $('sus-price').textContent = fmt(livePrice('susanos__' + idx, it.p));
   $('sus-code').textContent  = it.c;
 }
 function susAdd(){
-  const it = SUS[$('sus-sel').value];
-  cartAdd('Susanos', it.l + ' · ' + it.c, it.p, 'media/aritos-susano-par-1.png');
+  const idx = $('sus-sel').value;
+  const it  = SUS[idx];
+  cartAdd('Susanos', it.l + ' · ' + it.c, livePrice('susanos__' + idx, it.p), 'media/aritos-susano-par-1.png');
 }
 
 /* ── Esclavas ──────────────────────────────────────────── */
@@ -1426,10 +1441,14 @@ const ESCL = [
   {l:'6mm · ESCL0093', p:100000}, {l:'7mm · ESCL0094', p:120000},
   {l:'9mm · ESCL0095', p:160000},
 ];
-function esclUpdate(){ $('escl-price').textContent = fmt(ESCL[$('escl-sel').value].p); }
+function esclUpdate(){
+  const idx = $('escl-sel').value;
+  $('escl-price').textContent = fmt(livePrice('esclavas__' + idx, ESCL[idx].p));
+}
 function esclAdd(){
-  const it = ESCL[$('escl-sel').value];
-  cartAdd('Esclava', it.l, it.p, 'media/pulseras-esclavas-set-tamanos.png');
+  const idx = $('escl-sel').value;
+  const it  = ESCL[idx];
+  cartAdd('Esclava', it.l, livePrice('esclavas__' + idx, it.p), 'media/pulseras-esclavas-set-tamanos.png');
 }
 
 /* ── Pulsera Rolo ──────────────────────────────────────── */
@@ -1449,18 +1468,24 @@ function roloPickLen(btn){
   roloUpdate();
 }
 function roloUpdate(){
-  const it = ROLO[$('rolo-grosor').value];
-  const p  = roloLen === 19 ? it.p19 : it.p21;
-  const c  = roloLen === 19 ? it.c19 : it.c21;
+  const idx = $('rolo-grosor').value;
+  const it  = ROLO[idx];
+  const baseP = roloLen === 19 ? it.p19 : it.p21;
+  const stockKey = 'rolo__' + (parseInt(idx) * 2 + (roloLen === 19 ? 0 : 1));
+  const p   = livePrice(stockKey, baseP);
+  const c   = roloLen === 19 ? it.c19 : it.c21;
   $('rolo-price').textContent = fmt(p);
   $('rolo-code').textContent  = c;
   const ri = document.querySelector('.single-img img[alt="Pulsera Rolo"]');
   if(ri) ri.src = 'media/' + it.img + '.png';
 }
 function roloAdd(){
-  const it = ROLO[$('rolo-grosor').value];
-  const p  = roloLen === 19 ? it.p19 : it.p21;
-  const c  = roloLen === 19 ? it.c19 : it.c21;
+  const idx = $('rolo-grosor').value;
+  const it  = ROLO[idx];
+  const baseP = roloLen === 19 ? it.p19 : it.p21;
+  const stockKey = 'rolo__' + (parseInt(idx) * 2 + (roloLen === 19 ? 0 : 1));
+  const p   = livePrice(stockKey, baseP);
+  const c   = roloLen === 19 ? it.c19 : it.c21;
   cartAdd('Pulsera Rolo', it.g + ' · X' + roloLen + 'cm · ' + c, p, 'media/' + it.img + '.png');
 }
 
@@ -1510,14 +1535,16 @@ const VARIADOS = [
 ];
 
 function buildVariado(v){
-  const sn = v.n.replace(/'/g,"\\'");
+  const sn    = v.n.replace(/'/g,"\\'");
+  const vKey  = 'v-' + (v.c || v.img);
+  const price = livePrice(vKey, 15000);
   return `<div class="pcard fi">
   <div class="pcard-img"><img src="media/${v.img}.png" alt="${v.n}" loading="lazy"/></div>
   <div class="pcard-body">
     <div class="pcard-name">${v.n}</div>
     <div class="pcard-code">${v.c || '&nbsp;'}</div>
-    <div class="pcard-price">$15.000</div>
-    <button class="btn-primary" onclick="cartAdd('${sn}','${v.c}',15000,'media/${v.img}.png');flash(this)">Agregar al carrito</button>
+    <div class="pcard-price">${fmt(price)}</div>
+    <button class="btn-primary" onclick="cartAdd('${sn}','${v.c}',${price},'media/${v.img}.png');flash(this)">Agregar al carrito</button>
   </div>
 </div>`;
 }
@@ -1622,8 +1649,28 @@ function flash(btn){
   setTimeout(() => { btn.textContent = orig; btn.classList.remove('flash'); }, 1500);
 }
 
+/* ── stock.json live overrides ─────────────────────────── */
+let _stock = {};
+
+async function loadLiveStock(){
+  try {
+    const res = await fetch('https://raw.githubusercontent.com/bijou925/bijou925.github.io/main/stock.json', {cache:'no-cache'});
+    if(res.ok) _stock = await res.json();
+  } catch(e){ /* offline or missing — use defaults */ }
+}
+
+function livePrice(id, defaultPrice){
+  return _stock[id]?.price ?? defaultPrice;
+}
+
+function liveInStock(id){
+  return _stock[id]?.stock !== false;
+}
+
 /* ── Init ──────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+
+  await loadLiveStock();
 
   /* populate selects */
   function fillSel(id, data){ const s = $(id); data.forEach((it,i) => { const o = document.createElement('option'); o.value=i; o.textContent=it.l||it.label||it.l; s.appendChild(o); }); }
@@ -1636,22 +1683,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const perSel = $('per-size');
   PER.forEach((it,i) => { const o = document.createElement('option'); o.value=i; o.textContent=it.l; perSel.appendChild(o); });
 
+  /* Apply live price overrides to selector initial display */
+  afSync(); agSync(); bolSync(); criSync(); perUpdate(); susUpdate(); esclUpdate(); roloUpdate();
+
   /* wire onchange for native selects without inline handler */
   $('af-sel').addEventListener('change',  afSync);
   $('ag-sel').addEventListener('change',  agSync);
   $('bol-sel').addEventListener('change', bolSync);
   $('cri-sel').addEventListener('change', criSync);
 
-  /* render grids */
-  $('grid-variados').innerHTML  = VARIADOS.map(buildVariado).join('');
+  /* render grids — apply live prices and stock */
+  const varGrid = $('grid-variados');
+  varGrid.innerHTML = VARIADOS.filter(v => liveInStock('v-' + (v.c || v.img)))
+    .map(v => buildVariado(v)).join('');
+
   const pulGrid = $('grid-pulseras');
   PULSERAS.forEach(p => {
     if(p._h){
       pulGrid.insertAdjacentHTML('beforeend', `<div class="grid-lbl"><h3>${p._h}</h3></div>`);
     } else {
-      pulGrid.insertAdjacentHTML('beforeend', buildPulsera(p));
+      if(!liveInStock(p.c)) return;
+      const overP19 = livePrice(p.c, p.p19);
+      const overP21 = p.p21 ? livePrice(p.c, p.p21) : undefined;
+      pulGrid.insertAdjacentHTML('beforeend', buildPulsera({...p, p19:overP19, p21:overP21}));
     }
   });
+
+  /* render new products added via admin */
+  renderNewProducts();
 
   /* cart events */
   document.querySelectorAll('.js-open-cart').forEach(b => b.addEventListener('click', openCart));
@@ -1677,6 +1736,129 @@ document.addEventListener('DOMContentLoaded', () => {
 
   cartRender();
 });
+
+/* ── Render products added via admin panel ─────────────── */
+function renderNewProducts(){
+  const newProds = _stock._newProducts;
+  if(!Array.isArray(newProds) || newProds.length === 0) return;
+
+  // Group by category
+  const byCat = {};
+  newProds.forEach(p => {
+    if(_stock[p.code]?.stock === false) return; // hidden via admin stock toggle
+    if(!byCat[p.category]) byCat[p.category] = [];
+    byCat[p.category].push(p);
+  });
+
+  Object.entries(byCat).forEach(([catId, prods]) => {
+    // Find target grid — map category id to a grid container or section
+    let targetGrid = null;
+    if(catId === 'variados')  targetGrid = $('grid-variados');
+    if(catId === 'pulseras')  targetGrid = $('grid-pulseras');
+
+    prods.forEach(p => {
+      const price = _stock[p.code]?.price ?? p.price;
+      const imgSrc = p.img || `media/${p.code.toLowerCase()}.png`;
+
+      if(p.productType === 'fixed'){
+        const sn = p.name.replace(/'/g,"\\'");
+        const card = `<div class="pcard fi">
+  <div class="pcard-img"><img src="${imgSrc}" alt="${p.name}" loading="lazy"/></div>
+  <div class="pcard-body">
+    <div class="pcard-name">${p.name}</div>
+    <div class="pcard-code">${p.code}</div>
+    <div class="pcard-price">${fmt(price)}</div>
+    <button class="btn-primary" onclick="cartAdd('${sn}','${p.code}',${price},'${imgSrc}');flash(this)">Agregar al carrito</button>
+  </div>
+</div>`;
+        if(targetGrid){
+          targetGrid.insertAdjacentHTML('beforeend', card);
+        } else {
+          appendToNuevos(card, catId);
+        }
+      } else if(p.productType === 'sizes' && Array.isArray(p.sizes)){
+        // Build a selector UI and append it to the page before the footer
+        appendSizesProduct(p, imgSrc, price);
+      }
+    });
+  });
+
+  // Observe new fi elements
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, {threshold:.07, rootMargin:'0px 0px -36px 0px'});
+  document.querySelectorAll('.fi:not(.on)').forEach(el => io.observe(el));
+}
+
+function appendToNuevos(cardHtml, catLabel){
+  let section = $('nuevos-section');
+  if(!section){
+    section = document.createElement('div');
+    section.id = 'nuevos-section';
+    section.className = 'sec-inner';
+    section.innerHTML = `<div class="sub-hdr fi"><h2 class="sub-title">Nuevos Productos</h2><span class="sub-badge">Plata 925</span></div><div class="pgrid" id="grid-nuevos"></div>`;
+    document.querySelector('footer').before(section);
+  }
+  $('grid-nuevos').insertAdjacentHTML('beforeend', cardHtml);
+}
+
+function appendSizesProduct(p, imgSrc, defaultPrice){
+  const secId = 'new-' + p.code;
+  if($(secId)) return;
+
+  const sizes = p.sizes;
+  const firstPrice = _stock[p.code + '__0']?.price ?? sizes[0].p;
+  const options = sizes.map((sz, i) => `<option value="${i}">${sz.l}</option>`).join('');
+
+  const html = `<div id="${secId}" class="sec-inner">
+  <div class="sub-hdr fi">
+    <h2 class="sub-title">${p.name}</h2>
+    <span class="sub-badge">Plata 925 · ${p.code}</span>
+  </div>
+  <div class="single-prod fi">
+    <div class="single-img">
+      <img src="${imgSrc}" alt="${p.name}"/>
+    </div>
+    <div class="sel-ui" style="max-width:100%">
+      <span class="sel-ui-eye">Elegí tu talle</span>
+      <div class="sel-wrap">
+        <select id="new-sel-${p.code}" onchange="newProdUpdate('${p.code}')">
+          ${options}
+        </select>
+      </div>
+      <div class="sel-price-row">
+        <span class="sel-price-lbl">Precio:</span>
+        <span class="sel-price" id="new-price-${p.code}">${fmt(firstPrice)}</span>
+      </div>
+      <button class="btn-primary" onclick="newProdAdd('${p.code}')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        Agregar al carrito
+      </button>
+    </div>
+  </div>
+</div>`;
+
+  document.querySelector('footer').before(Object.assign(document.createElement('div'), {innerHTML:html}).firstElementChild);
+}
+
+function newProdUpdate(code){
+  const prod = _stock._newProducts?.find(p => p.code === code);
+  if(!prod) return;
+  const idx = parseInt($('new-sel-' + code).value);
+  const sz  = prod.sizes[idx];
+  const price = _stock[code + '__' + idx]?.price ?? sz.p;
+  $('new-price-' + code).textContent = fmt(price);
+}
+
+function newProdAdd(code){
+  const prod = _stock._newProducts?.find(p => p.code === code);
+  if(!prod) return;
+  const idx = parseInt($('new-sel-' + code).value);
+  const sz  = prod.sizes[idx];
+  const price = _stock[code + '__' + idx]?.price ?? sz.p;
+  const imgSrc = prod.img || `media/${code.toLowerCase()}.png`;
+  cartAdd(prod.name, sz.l, price, imgSrc);
+}
 </script>
 </body>
 </html>
