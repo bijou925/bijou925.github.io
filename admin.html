@@ -157,8 +157,9 @@
     <h1>Bijou 925</h1>
     <p>Panel de administración</p>
     <input type="password" id="pw-input" placeholder="Contraseña" onkeydown="if(event.key==='Enter')tryLogin()"/>
+    <input type="password" id="token-input" placeholder="GitHub Token (ghp_...)" onkeydown="if(event.key==='Enter')tryLogin()" style="margin-bottom:1rem"/>
     <button class="btn" onclick="tryLogin()">Entrar</button>
-    <div class="login-err" id="login-err">Contraseña incorrecta</div>
+    <div class="login-err" id="login-err">Contraseña o token incorrecto</div>
   </div>
 </div>
 
@@ -184,12 +185,15 @@
 /* ── CONFIG ── */
 const ADMIN_PASSWORD = 'bijou2025';
 const GH_REPO  = 'bijou925/bijou925.github.io';
-const GH_TOKEN = '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';
+let GH_TOKEN = '';
 const STOCK_FILE = 'stock.json';
 
 /* ── LOGIN ── */
 function tryLogin(){
-  if(document.getElementById('pw-input').value === ADMIN_PASSWORD){
+  const pw    = document.getElementById('pw-input').value;
+  const token = document.getElementById('token-input').value.trim();
+  if(pw === ADMIN_PASSWORD && token.startsWith('ghp_')){
+    GH_TOKEN = token;
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app').style.display = 'block';
     initApp();
