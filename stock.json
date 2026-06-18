@@ -397,6 +397,16 @@
       "img": "media/plp0000.png",
       "price": 58000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Mini cilindros",
+      "code": "PLP0299",
+      "category": "pulseras",
+      "productType": "fixed",
+      "img": "media/plp0299.png",
+      "price": 76000,
+      "stock": true
     }
   ],
   "PLP0127": {
