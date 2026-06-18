@@ -225,6 +225,16 @@
       "img": "media/ar0882.png",
       "price": 50,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Medio sin fin simple",
+      "code": "AR0909",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0909.png",
+      "price": 40,
+      "stock": true
     }
   ]
 }
