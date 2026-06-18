@@ -483,6 +483,29 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "ALT maciza plata y oro",
+      "code": "PYOALT",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/pyoalt.png",
+      "sizes": [
+        {
+          "l": "Hilo 50 x19cm",
+          "p": 26000
+        },
+        {
+          "l": "Hilo 60 x19cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 60 x21cm",
+          "p": 44000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
