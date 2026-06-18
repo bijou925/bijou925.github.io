@@ -535,6 +535,29 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Almendra plata y oro",
+      "code": "PYOALMENDRA",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/pyoalmendra.png",
+      "sizes": [
+        {
+          "l": "Hilo 50 x19cm",
+          "p": 32000
+        },
+        {
+          "l": "Hilo 50 x21cm",
+          "p": 36000
+        },
+        {
+          "l": "Hilo 80 x19cm",
+          "p": 54000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
