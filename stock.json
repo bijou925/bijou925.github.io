@@ -589,6 +589,16 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "7 corazones",
+      "code": "PLP0433",
+      "category": "pulseras",
+      "productType": "fixed",
+      "img": "media/plp0433.png",
+      "price": 40000,
+      "stock": true
     }
   ],
   "PLP0127": {
