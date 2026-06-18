@@ -295,6 +295,33 @@
       "img": "media/ar0001.png",
       "price": 70,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Grumet",
+      "code": "GRUMET",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/grumet.png",
+      "sizes": [
+        {
+          "l": "Hilo 60 x19cm",
+          "p": 28000
+        },
+        {
+          "l": "Hilo 80 x19cm",
+          "p": 50000
+        },
+        {
+          "l": "Hilo 100 x19cm",
+          "p": 78000
+        },
+        {
+          "l": "Hilo 125 x19cm",
+          "p": 128000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
