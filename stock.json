@@ -255,6 +255,16 @@
       "img": "media/ar0849.png",
       "price": 48,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cuff brillos mini",
+      "code": "AR0903",
+      "category": "argollas-gruesas",
+      "productType": "fixed",
+      "img": "media/ar0903.png",
+      "price": 38,
+      "stock": true
     }
   ]
 }
