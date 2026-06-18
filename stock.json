@@ -417,6 +417,16 @@
       "img": "media/plp0159.png",
       "price": 70000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Doble torzada",
+      "code": "PLP0158",
+      "category": "pulseras",
+      "productType": "fixed",
+      "img": "media/plp0158.png",
+      "price": 36000,
+      "stock": true
     }
   ],
   "PLP0127": {
