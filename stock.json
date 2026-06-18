@@ -57,7 +57,7 @@
     "price": 10000
   },
   "PLP0125": {
-    "stock": false
+    "stock": true
   },
   "PLP0142": {
     "stock": false
@@ -296,5 +296,8 @@
       "price": 70,
       "stock": true
     }
-  ]
+  ],
+  "PLP0127": {
+    "stock": false
+  }
 }
