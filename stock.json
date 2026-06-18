@@ -156,11 +156,11 @@
       "img": "media/ar1057.png",
       "sizes": [
         {
-          "l": "N°1 1,1 cm",
+          "l": "NÂ°1 1,1 cm",
           "p": 20
         },
         {
-          "l": "N°2 1,3 cm",
+          "l": "NÂ°2 1,3 cm",
           "p": 30
         }
       ],
@@ -298,6 +298,87 @@
     }
   ],
   "PLP0127": {
+    "stock": false
+  },
+  "PLP0029": {
+    "stock": false
+  },
+  "PLP0061": {
+    "stock": false
+  },
+  "PHP0003": {
+    "stock": false
+  },
+  "EVA0015": {
+    "stock": false
+  },
+  "EVA0010": {
+    "stock": false
+  },
+  "EVA0013": {
+    "stock": false
+  },
+  "EVA0022": {
+    "stock": false
+  },
+  "EVA0020": {
+    "stock": false
+  },
+  "EVA0019": {
+    "stock": false
+  },
+  "EVA0021": {
+    "stock": false
+  },
+  "EVA0018": {
+    "stock": false
+  },
+  "PLP0237": {
+    "stock": false
+  },
+  "PLP0236": {
+    "stock": false
+  },
+  "PLP0148": {
+    "stock": false
+  },
+  "PLP0213": {
+    "stock": false
+  },
+  "PLP0212": {
+    "stock": true
+  },
+  "PLP0211": {
+    "stock": false
+  },
+  "PLP0220": {
+    "stock": false
+  },
+  "PLP0214": {
+    "stock": false
+  },
+  "PLP0216": {
+    "stock": false
+  },
+  "PLP0215": {
+    "stock": false
+  },
+  "PLP0221": {
+    "stock": false
+  },
+  "PLP0162": {
+    "stock": false
+  },
+  "PLP0163": {
+    "stock": false
+  },
+  "PLP0159": {
+    "stock": false
+  },
+  "PLP0170": {
+    "stock": false
+  },
+  "PLP0155": {
     "stock": false
   }
 }
