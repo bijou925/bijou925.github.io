@@ -729,5 +729,11 @@
   },
   "v-AR0818": {
     "stock": false
+  },
+  "_catOverrides": {
+    "variados": {
+      "label": "Aritos Variados",
+      "img": ""
+    }
   }
 }
