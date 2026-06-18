@@ -407,6 +407,16 @@
       "img": "media/plp0299.png",
       "price": 76000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Bolitas y cilindros",
+      "code": "PLP0159",
+      "category": "pulseras",
+      "productType": "fixed",
+      "img": "media/plp0159.png",
+      "price": 70000,
+      "stock": true
     }
   ],
   "PLP0127": {
