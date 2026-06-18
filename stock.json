@@ -460,6 +460,29 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "GLP maciza plata y oro",
+      "code": "PYOGLP",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/pyoglp.png",
+      "sizes": [
+        {
+          "l": "Hilo 60 x19cm",
+          "p": 44000
+        },
+        {
+          "l": "Hilo 80 x19cm",
+          "p": 64000
+        },
+        {
+          "l": "Hilo 100 x19cm",
+          "p": 86000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
