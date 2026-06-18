@@ -245,6 +245,16 @@
       "img": "media/ar0554.png",
       "price": 48,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Colgante flor de perla",
+      "code": "AR0849",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0849.png",
+      "price": 48,
+      "stock": true
     }
   ]
 }
