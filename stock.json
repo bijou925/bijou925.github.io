@@ -195,6 +195,16 @@
       "img": "media/ar0587.png",
       "price": 38,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Infinito con brillos",
+      "code": "AR0911",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0911.png",
+      "price": 32,
+      "stock": true
     }
   ]
 }
