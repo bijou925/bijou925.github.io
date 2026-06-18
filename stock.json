@@ -87,7 +87,7 @@
     "stock": false
   },
   "v-AR0329": {
-    "stock": false
+    "stock": true
   },
   "v-AR0296": {
     "stock": false
@@ -108,7 +108,7 @@
     "stock": false
   },
   "v-AR0292": {
-    "stock": false
+    "stock": true
   },
   "v-AR0295": {
     "stock": false
@@ -117,13 +117,13 @@
     "stock": false
   },
   "v-AR0293": {
-    "stock": false
+    "stock": true
   },
   "v-AR0326": {
     "stock": false
   },
   "v-AR0820": {
-    "stock": false
+    "stock": true
   },
   "v-AR0822": {
     "stock": false
@@ -132,13 +132,13 @@
     "stock": false
   },
   "v-AR0290": {
-    "stock": false
+    "stock": true
   },
   "v-AR0281": {
-    "stock": false
+    "stock": true
   },
   "v-AR0288": {
-    "stock": false
+    "stock": true
   },
   "v-AR0828": {
     "stock": false
@@ -692,6 +692,18 @@
     "stock": false
   },
   "v-AR0823": {
+    "stock": true
+  },
+  "v-bicha-o": {
+    "stock": true
+  },
+  "v-vaquita": {
+    "stock": false
+  },
+  "v-AR0327": {
+    "stock": false
+  },
+  "v-AR0818": {
     "stock": false
   }
 }
