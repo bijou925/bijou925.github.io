@@ -185,6 +185,16 @@
       "img": "media/ar0000.png",
       "price": 48,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Mariposa con brillos",
+      "code": "AR0587",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0587.png",
+      "price": 38,
+      "stock": true
     }
   ]
 }
