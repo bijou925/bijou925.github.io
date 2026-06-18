@@ -427,6 +427,16 @@
       "img": "media/plp0158.png",
       "price": 36000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Bolita con cilindro",
+      "code": "PLP0300",
+      "category": "pulseras",
+      "productType": "fixed",
+      "img": "media/plp0300.png",
+      "price": 66000,
+      "stock": true
     }
   ],
   "PLP0127": {
