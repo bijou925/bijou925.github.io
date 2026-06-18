@@ -165,6 +165,16 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "estrella triple",
+      "code": "AR0977",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0977.png",
+      "price": 36,
+      "stock": true
     }
   ]
 }
