@@ -215,6 +215,16 @@
       "img": "media/ar0569.png",
       "price": 40,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Medio sin fin doble",
+      "code": "AR0882",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0882.png",
+      "price": 50,
+      "stock": true
     }
   ]
 }
