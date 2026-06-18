@@ -235,6 +235,16 @@
       "img": "media/ar0909.png",
       "price": 40,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Hexagono de perla",
+      "code": "AR0554",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0554.png",
+      "price": 48,
+      "stock": true
     }
   ]
 }
