@@ -506,6 +506,16 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Soga plata y oro",
+      "code": "PPYO0101",
+      "category": "pulseras",
+      "productType": "fixed",
+      "img": "media/ppyo0101.png",
+      "price": 90000,
+      "stock": true
     }
   ],
   "PLP0127": {
