@@ -205,6 +205,16 @@
       "img": "media/ar0911.png",
       "price": 32,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Trepador flor",
+      "code": "AR0569",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0569.png",
+      "price": 40,
+      "stock": true
     }
   ]
 }
