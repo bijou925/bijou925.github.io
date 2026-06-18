@@ -1800,95 +1800,157 @@ document.addEventListener('DOMContentLoaded', async () => {
   cartRender();
 });
 
-/* ── Render products added via admin panel ─────────────── */
+/* ── Render products/categories added via admin panel ──── */
 function renderNewProducts(){
-  const newProds = _stock._newProducts;
-  if(!Array.isArray(newProds) || newProds.length === 0) return;
+  // Render admin-created categories first (Feature 1)
+  const newCats = _stock._newCategories;
+  if(Array.isArray(newCats)){
+    newCats.forEach(cat => {
+      if($('section-newcat-' + cat.id)) return; // already rendered
+      const wrap = document.createElement('div');
+      wrap.id = 'section-newcat-' + cat.id;
+      wrap.className = 'sec-inner';
+      let bannerHtml = '';
+      if(cat.headerImg){
+        bannerHtml = `<div class="sec-banner" style="background-image:url('${cat.headerImg}')" id="${cat.id}">
+  <div class="sec-banner-inner"><span>Colección</span><h2>${cat.label}</h2></div>
+</div>`;
+      }
+      wrap.innerHTML = `
+        ${bannerHtml ? '' : `<div id="${cat.id}"></div>`}
+        <div class="sub-hdr fi">
+          <h2 class="sub-title">${cat.label}</h2>
+          <span class="sub-badge">Plata 925</span>
+        </div>
+        <div class="pgrid" id="grid-newcat-${cat.id}"></div>`;
+      if(bannerHtml){
+        const bannerEl = document.createElement('div');
+        bannerEl.innerHTML = bannerHtml;
+        document.querySelector('footer').before(bannerEl.firstElementChild);
+      }
+      document.querySelector('footer').before(wrap);
+    });
+  }
 
-  // Group by category
+  const newProds = _stock._newProducts;
+  if(!Array.isArray(newProds) || newProds.length === 0){
+    observeNewFi();
+    return;
+  }
+
+  // Group by category, preserving _order if present
   const byCat = {};
-  newProds.forEach(p => {
-    if(_stock[p.code]?.stock === false) return; // hidden via admin stock toggle
-    if(!byCat[p.category]) byCat[p.category] = [];
-    byCat[p.category].push(p);
-  });
+  [...newProds]
+    .sort((a,b) => (a._order ?? 9999) - (b._order ?? 9999))
+    .forEach(p => {
+      if(_stock[p.code]?.stock === false) return;
+      if(!byCat[p.category]) byCat[p.category] = [];
+      byCat[p.category].push(p);
+    });
 
   Object.entries(byCat).forEach(([catId, prods]) => {
-    // Find target grid — map category id to a grid container or section
-    let targetGrid = null;
-    if(catId === 'variados')  targetGrid = $('grid-variados');
-    if(catId === 'pulseras')  targetGrid = $('grid-pulseras');
+    // Resolve target grid: known built-in grids or admin-created category grid
+    let targetGrid = $('grid-' + catId) ||          // grid-variados, grid-pulseras
+                     $('grid-newcat-' + catId);     // admin-created category
 
     prods.forEach(p => {
-      const price = _stock[p.code]?.price ?? p.price;
       const imgSrc = p.img || `media/${p.code.toLowerCase()}.png`;
 
-      if(p.productType === 'fixed'){
+      // Each product renders by its own productType (Feature 3)
+      if(p.productType === 'sizes' && Array.isArray(p.sizes)){
+        if(targetGrid){
+          // Inline sel-ui card inside the grid
+          appendSizesCard(targetGrid, p, imgSrc);
+        } else {
+          // Standalone section before footer
+          appendSizesSection(p, imgSrc);
+        }
+      } else {
+        // fixed price card
+        const price = _stock[p.code]?.price ?? p.price;
+        const inStock = _stock[p.code]?.stock !== false;
         const sn = p.name.replace(/'/g,"\\'");
-        const card = `<div class="pcard fi">
+        const card = `<div class="pcard fi${inStock?'':' oos'}">
   <div class="pcard-img"><img src="${imgSrc}" alt="${p.name}" loading="lazy"/></div>
   <div class="pcard-body">
+    ${inStock?'':'<span class="oos-badge">Sin stock</span>'}
     <div class="pcard-name">${p.name}</div>
     <div class="pcard-code">${p.code}</div>
     <div class="pcard-price">${fmt(price)}</div>
-    <button class="btn-primary" onclick="cartAdd('${sn}','${p.code}',${price},'${imgSrc}');flash(this)">Agregar al carrito</button>
+    <button class="btn-primary" ${inStock?`onclick="cartAdd('${sn}','${p.code}',${price},'${imgSrc}');flash(this)"`:'disabled'}>Agregar al carrito</button>
   </div>
 </div>`;
         if(targetGrid){
           targetGrid.insertAdjacentHTML('beforeend', card);
         } else {
-          appendToNuevos(card, catId);
+          appendToNuevos(card);
         }
-      } else if(p.productType === 'sizes' && Array.isArray(p.sizes)){
-        // Build a selector UI and append it to the page before the footer
-        appendSizesProduct(p, imgSrc, price);
       }
     });
   });
 
-  // Observe new fi elements
+  observeNewFi();
+}
+
+function observeNewFi(){
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
   }, {threshold:.07, rootMargin:'0px 0px -36px 0px'});
   document.querySelectorAll('.fi:not(.on)').forEach(el => io.observe(el));
 }
 
-function appendToNuevos(cardHtml, catLabel){
-  let section = $('nuevos-section');
-  if(!section){
-    section = document.createElement('div');
-    section.id = 'nuevos-section';
-    section.className = 'sec-inner';
-    section.innerHTML = `<div class="sub-hdr fi"><h2 class="sub-title">Nuevos Productos</h2><span class="sub-badge">Plata 925</span></div><div class="pgrid" id="grid-nuevos"></div>`;
-    document.querySelector('footer').before(section);
-  }
-  $('grid-nuevos').insertAdjacentHTML('beforeend', cardHtml);
-}
-
-function appendSizesProduct(p, imgSrc, defaultPrice){
-  const secId = 'new-' + p.code;
-  if($(secId)) return;
-
+/* Inline sizes card inside an existing grid (Feature 3 + Bug Fix 1) */
+function appendSizesCard(grid, p, imgSrc){
+  const cardId = 'newsc-' + p.code;
+  if(document.getElementById(cardId)) return;
   const sizes = p.sizes;
   const firstPrice = _stock[p.code + '__0']?.price ?? sizes[0].p;
-  const options = sizes.map((sz, i) => `<option value="${i}">${sz.l}</option>`).join('');
+  const options = sizes.map((sz,i) => `<option value="${i}">${sz.l}</option>`).join('');
+  const inStock = _stock[p.code]?.stock !== false;
+  const card = `<div class="pcard fi${inStock?'':' oos'}" id="${cardId}" style="grid-column:1/-1">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;padding:.5rem">
+    <div class="pcard-img" style="border-radius:8px;overflow:hidden">
+      <img src="${imgSrc}" alt="${p.name}" loading="lazy"/>
+    </div>
+    <div class="pcard-body" style="padding:.5rem 0">
+      ${inStock?'':'<span class="oos-badge">Sin stock</span>'}
+      <div class="pcard-name">${p.name}</div>
+      <div class="pcard-code">${p.code}</div>
+      <div class="sel-ui" style="max-width:100%;margin-top:.7rem">
+        <span class="sel-ui-eye">Elegí tu talle</span>
+        <div class="sel-wrap"><select id="new-sel-${p.code}" onchange="newProdUpdate('${p.code}')">${options}</select></div>
+        <div class="sel-price-row">
+          <span class="sel-price-lbl">Precio:</span>
+          <span class="sel-price" id="new-price-${p.code}">${fmt(firstPrice)}</span>
+        </div>
+        <button class="btn-primary" ${inStock?`onclick="newProdAdd('${p.code}')"`:'disabled'}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          Agregar al carrito
+        </button>
+      </div>
+    </div>
+  </div>
+</div>`;
+  grid.insertAdjacentHTML('beforeend', card);
+}
 
+/* Standalone full-width section for sizes products in unknown categories */
+function appendSizesSection(p, imgSrc){
+  const secId = 'new-' + p.code;
+  if($(secId)) return;
+  const sizes = p.sizes;
+  const firstPrice = _stock[p.code + '__0']?.price ?? sizes[0].p;
+  const options = sizes.map((sz,i) => `<option value="${i}">${sz.l}</option>`).join('');
   const html = `<div id="${secId}" class="sec-inner">
   <div class="sub-hdr fi">
     <h2 class="sub-title">${p.name}</h2>
     <span class="sub-badge">Plata 925 · ${p.code}</span>
   </div>
   <div class="single-prod fi">
-    <div class="single-img">
-      <img src="${imgSrc}" alt="${p.name}"/>
-    </div>
+    <div class="single-img"><img src="${imgSrc}" alt="${p.name}"/></div>
     <div class="sel-ui" style="max-width:100%">
       <span class="sel-ui-eye">Elegí tu talle</span>
-      <div class="sel-wrap">
-        <select id="new-sel-${p.code}" onchange="newProdUpdate('${p.code}')">
-          ${options}
-        </select>
-      </div>
+      <div class="sel-wrap"><select id="new-sel-${p.code}" onchange="newProdUpdate('${p.code}')">${options}</select></div>
       <div class="sel-price-row">
         <span class="sel-price-lbl">Precio:</span>
         <span class="sel-price" id="new-price-${p.code}">${fmt(firstPrice)}</span>
@@ -1900,8 +1962,19 @@ function appendSizesProduct(p, imgSrc, defaultPrice){
     </div>
   </div>
 </div>`;
+  document.querySelector('footer').before(Object.assign(document.createElement('div'),{innerHTML:html}).firstElementChild);
+}
 
-  document.querySelector('footer').before(Object.assign(document.createElement('div'), {innerHTML:html}).firstElementChild);
+function appendToNuevos(cardHtml){
+  let section = $('nuevos-section');
+  if(!section){
+    section = document.createElement('div');
+    section.id = 'nuevos-section';
+    section.className = 'sec-inner';
+    section.innerHTML = `<div class="sub-hdr fi"><h2 class="sub-title">Nuevos Productos</h2><span class="sub-badge">Plata 925</span></div><div class="pgrid" id="grid-nuevos"></div>`;
+    document.querySelector('footer').before(section);
+  }
+  $('grid-nuevos').insertAdjacentHTML('beforeend', cardHtml);
 }
 
 function newProdUpdate(code){
