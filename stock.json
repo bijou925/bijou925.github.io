@@ -156,11 +156,11 @@
       "img": "media/ar1057.png",
       "sizes": [
         {
-          "l": "NÃÂÃÂ°1 1,1 cm",
+          "l": "NÃÂÃÂÃÂÃÂ°1 1,1 cm",
           "p": 20
         },
         {
-          "l": "NÃÂÃÂ°2 1,3 cm",
+          "l": "NÃÂÃÂÃÂÃÂ°2 1,3 cm",
           "p": 30
         }
       ],
@@ -447,15 +447,15 @@
       "img": "media/pyoap.png",
       "sizes": [
         {
-          "l": "NÃÂº1 x19cm",
+          "l": "NÃÂÃÂº1 x19cm",
           "p": 32000
         },
         {
-          "l": "NÃÂº2 x19cm",
+          "l": "NÃÂÃÂº2 x19cm",
           "p": 40000
         },
         {
-          "l": "NÃÂº3 x19cm",
+          "l": "NÃÂÃÂº3 x19cm",
           "p": 52000
         }
       ],
@@ -598,6 +598,30 @@
       "productType": "fixed",
       "img": "media/plp0433.png",
       "price": 40000,
+      "stock": true
+    },
+    {
+      "_added": true,
+      "name": "arito prueba",
+      "code": "ss",
+      "category": "variados",
+      "productType": "sizes",
+      "img": "",
+      "_order": 11,
+      "sizes": [
+        {
+          "l": "sad",
+          "p": 1231
+        },
+        {
+          "l": "asdasd",
+          "p": 12312312
+        },
+        {
+          "l": "dadas",
+          "p": 131231
+        }
+      ],
       "stock": true
     }
   ],
