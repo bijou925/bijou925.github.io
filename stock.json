@@ -437,6 +437,29 @@
       "img": "media/plp0300.png",
       "price": 66000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Aparente plata y oro",
+      "code": "PYOAP",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/pyoap.png",
+      "sizes": [
+        {
+          "l": "Nº1 x19cm",
+          "p": 32000
+        },
+        {
+          "l": "Nº2 x19cm",
+          "p": 40000
+        },
+        {
+          "l": "Nº3 x19cm",
+          "p": 52000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
