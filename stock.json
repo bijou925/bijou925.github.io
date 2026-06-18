@@ -516,6 +516,25 @@
       "img": "media/ppyo0101.png",
       "price": 90000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "FPB plata y oro",
+      "code": "PYOFPB",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/pyofpb.png",
+      "sizes": [
+        {
+          "l": "FPB x19cm",
+          "p": 40000
+        },
+        {
+          "l": "FPB x21cm",
+          "p": 44000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
