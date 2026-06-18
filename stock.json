@@ -322,6 +322,33 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Pulsera 3x1",
+      "code": "3X1",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/3x1.png",
+      "sizes": [
+        {
+          "l": "Hilo 60 x19cm",
+          "p": 26000
+        },
+        {
+          "l": "Hilo 80 x19cm",
+          "p": 44000
+        },
+        {
+          "l": "Hilo 100 x19cm",
+          "p": 62000
+        },
+        {
+          "l": "Hilo 125 x19cm",
+          "p": 84000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
