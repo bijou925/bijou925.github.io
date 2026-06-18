@@ -175,6 +175,16 @@
       "img": "media/ar0977.png",
       "price": 36,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Trepador susanito",
+      "code": "AR0000",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0000.png",
+      "price": 48,
+      "stock": true
     }
   ]
 }
