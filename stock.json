@@ -558,6 +558,37 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "FR plata y oro",
+      "code": "PYOFR",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/pyofr.png",
+      "sizes": [
+        {
+          "l": "Hilo 40 x19cm",
+          "p": 20000
+        },
+        {
+          "l": "Hilo 50 x19cm",
+          "p": 32000
+        },
+        {
+          "l": "Hilo 60 x19cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 80 x19cm",
+          "p": 54000
+        },
+        {
+          "l": "Hilo 100 x19cm",
+          "p": 80000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
