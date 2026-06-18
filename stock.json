@@ -285,6 +285,16 @@
       "img": "media/ar0878.png",
       "price": 70,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Rulette colgante",
+      "code": "AR0001",
+      "category": "variados",
+      "productType": "fixed",
+      "img": "media/ar0001.png",
+      "price": 70,
+      "stock": true
     }
   ]
 }
