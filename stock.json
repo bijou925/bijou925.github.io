@@ -349,6 +349,25 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Pulsera GP",
+      "code": "GP",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/gp.png",
+      "sizes": [
+        {
+          "l": "Hilo 40 x21cm",
+          "p": 32000
+        },
+        {
+          "l": "Hilo 100 x21cm",
+          "p": 100000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
