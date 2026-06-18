@@ -368,6 +368,25 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Hilo plana",
+      "code": "PLANA",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/plana.png",
+      "sizes": [
+        {
+          "l": "Hilo 100 x21cm",
+          "p": 82000
+        },
+        {
+          "l": "Hilo 125 x21cm",
+          "p": 100000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
