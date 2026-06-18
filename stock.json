@@ -387,6 +387,16 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Escalerita",
+      "code": "PLP0000",
+      "category": "pulseras",
+      "productType": "fixed",
+      "img": "media/plp0000.png",
+      "price": 58000,
+      "stock": true
     }
   ],
   "PLP0127": {
