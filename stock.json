@@ -787,5 +787,12 @@
   },
   "AR0878": {
     "price": 70000
-  }
+  },
+  "_newCategories": [
+    {
+      "id": "collar",
+      "label": "sss",
+      "headerImg": ""
+    }
+  ]
 }
