@@ -624,6 +624,17 @@
       "img": "media/plp0433.png",
       "price": 40000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "sdadaw",
+      "code": "wadwasd",
+      "category": "collar",
+      "productType": "fixed",
+      "img": "",
+      "_order": 0,
+      "price": 21312,
+      "stock": true
     }
   ],
   "PLP0127": {
