@@ -292,16 +292,6 @@
     },
     {
       "_added": true,
-      "name": "Cuff de serpiente",
-      "code": "AR0460",
-      "category": "argollas-gruesas",
-      "productType": "fixed",
-      "img": "media/ar0460.png",
-      "price": 60,
-      "stock": true
-    },
-    {
-      "_added": true,
       "name": "Cuff cruz",
       "code": "AR0878",
       "category": "argollas-gruesas",
@@ -634,6 +624,17 @@
       "img": "",
       "_order": 0,
       "price": 21312,
+      "stock": true
+    },
+    {
+      "_added": true,
+      "name": "dasda",
+      "code": "dsdas",
+      "category": "argollas-finas",
+      "productType": "fixed",
+      "img": "",
+      "_order": 0,
+      "price": 243123,
       "stock": true
     }
   ],
