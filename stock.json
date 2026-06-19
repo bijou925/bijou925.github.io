@@ -647,6 +647,17 @@
       "_order": 1,
       "price": 32321321,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "21321",
+      "code": "321312",
+      "category": "collar",
+      "productType": "fixed",
+      "img": "",
+      "_order": 1,
+      "price": 21312312,
+      "stock": true
     }
   ],
   "PLP0127": {
