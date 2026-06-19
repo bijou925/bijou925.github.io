@@ -164,7 +164,8 @@
           "p": 30
         }
       ],
-      "stock": true
+      "stock": true,
+      "_order": 0
     },
     {
       "_added": true,
@@ -174,7 +175,8 @@
       "productType": "fixed",
       "img": "media/ar0977.png",
       "price": 36,
-      "stock": true
+      "stock": true,
+      "_order": 1
     },
     {
       "_added": true,
@@ -184,7 +186,8 @@
       "productType": "fixed",
       "img": "media/ar0000.png",
       "price": 48,
-      "stock": true
+      "stock": true,
+      "_order": 2
     },
     {
       "_added": true,
@@ -194,7 +197,8 @@
       "productType": "fixed",
       "img": "media/ar0587.png",
       "price": 38,
-      "stock": true
+      "stock": true,
+      "_order": 3
     },
     {
       "_added": true,
@@ -204,7 +208,8 @@
       "productType": "fixed",
       "img": "media/ar0911.png",
       "price": 32,
-      "stock": true
+      "stock": true,
+      "_order": 4
     },
     {
       "_added": true,
@@ -214,7 +219,8 @@
       "productType": "fixed",
       "img": "media/ar0569.png",
       "price": 40,
-      "stock": true
+      "stock": true,
+      "_order": 5
     },
     {
       "_added": true,
@@ -224,6 +230,31 @@
       "productType": "fixed",
       "img": "media/ar0882.png",
       "price": 50,
+      "stock": true,
+      "_order": 6
+    },
+    {
+      "_added": true,
+      "name": "arito prueba",
+      "code": "ss",
+      "category": "variados",
+      "productType": "sizes",
+      "img": "",
+      "_order": 7,
+      "sizes": [
+        {
+          "l": "sad",
+          "p": 1231
+        },
+        {
+          "l": "asdasd",
+          "p": 12312312
+        },
+        {
+          "l": "dadas",
+          "p": 131231
+        }
+      ],
       "stock": true
     },
     {
@@ -234,7 +265,8 @@
       "productType": "fixed",
       "img": "media/ar0909.png",
       "price": 40,
-      "stock": true
+      "stock": true,
+      "_order": 8
     },
     {
       "_added": true,
@@ -244,7 +276,8 @@
       "productType": "fixed",
       "img": "media/ar0554.png",
       "price": 48,
-      "stock": true
+      "stock": true,
+      "_order": 9
     },
     {
       "_added": true,
@@ -254,17 +287,8 @@
       "productType": "fixed",
       "img": "media/ar0849.png",
       "price": 48,
-      "stock": true
-    },
-    {
-      "_added": true,
-      "name": "Cuff brillos mini",
-      "code": "AR0903",
-      "category": "argollas-gruesas",
-      "productType": "fixed",
-      "img": "media/ar0903.png",
-      "price": 38,
-      "stock": true
+      "stock": true,
+      "_order": 10
     },
     {
       "_added": true,
@@ -294,7 +318,8 @@
       "productType": "fixed",
       "img": "media/ar0001.png",
       "price": 70,
-      "stock": true
+      "stock": true,
+      "_order": 11
     },
     {
       "_added": true,
@@ -599,30 +624,6 @@
       "img": "media/plp0433.png",
       "price": 40000,
       "stock": true
-    },
-    {
-      "_added": true,
-      "name": "arito prueba",
-      "code": "ss",
-      "category": "variados",
-      "productType": "sizes",
-      "img": "",
-      "_order": 11,
-      "sizes": [
-        {
-          "l": "sad",
-          "p": 1231
-        },
-        {
-          "l": "asdasd",
-          "p": 12312312
-        },
-        {
-          "l": "dadas",
-          "p": 131231
-        }
-      ],
-      "stock": true
     }
   ],
   "PLP0127": {
@@ -734,6 +735,46 @@
     "variados": {
       "label": "Aritos Variados",
       "img": ""
+    },
+    "argollas-finas": {
+      "label": "Argollas Finas",
+      "img": "media/argollas-finas-par.png"
     }
+  },
+  "AR0554": {
+    "price": 48000
+  },
+  "AR0909": {
+    "price": 40000
+  },
+  "AR0849": {
+    "price": 48000
+  },
+  "AR0001": {
+    "price": 70000
+  },
+  "AR0882": {
+    "price": 50000
+  },
+  "AR0569": {
+    "price": 40000
+  },
+  "AR0911": {
+    "price": 32000
+  },
+  "AR0587": {
+    "price": 38000
+  },
+  "AR0000": {
+    "price": 48000
+  },
+  "AR0977": {
+    "price": 36000
+  },
+  "AR1057__0": {
+    "price": 20000
+  },
+  "AR1057__1": {
+    "price": 30000
   }
 }
