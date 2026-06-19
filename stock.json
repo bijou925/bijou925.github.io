@@ -636,6 +636,17 @@
       "_order": 0,
       "price": 243123,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "312312",
+      "code": "2321312",
+      "category": "argollas-gruesas",
+      "productType": "fixed",
+      "img": "",
+      "_order": 1,
+      "price": 32321321,
+      "stock": true
     }
   ],
   "PLP0127": {
