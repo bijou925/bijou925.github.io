@@ -656,8 +656,25 @@ function renderNewCatSection(cat){
       <input type="text" class="price-input" style="width:160px" placeholder="Nuevo nombre" id="edit-label-${cat.id}" value="${cat.label}"/>
       <input type="text" class="price-input" style="width:200px" placeholder="URL imagen cabecera" id="edit-img-${cat.id}" value="${cat.headerImg||''}"/>
       <button class="submit-btn" style="padding:.35rem .9rem;font-size:12px" onclick="saveCatEdit('${cat.id}',true)">Guardar</button>
+      <button onclick="deleteCategory('${cat.id}')" style="padding:.35rem .9rem;background:#c0392b;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer">Eliminar categoría</button>
     </div>`;
   return editHtml + renderNewProductsForCat(cat.id);
+}
+
+/* ── DELETE CATEGORY ── */
+function deleteCategory(catId){
+  const cat = (stockData._newCategories||[]).find(c => c.id === catId);
+  const prodCount = (stockData._newProducts||[]).filter(p => p.category === catId).length;
+  const msg = prodCount > 0
+    ? `¿Eliminar la categoría "${cat?.label}" y sus ${prodCount} producto(s)?`
+    : `¿Eliminar la categoría "${cat?.label}"?`;
+  if(!confirm(msg)) return;
+  stockData._newCategories = (stockData._newCategories||[]).filter(c => c.id !== catId);
+  stockData._newProducts   = (stockData._newProducts||[]).filter(p => p.category !== catId);
+  markDirty();
+  renderTabs();
+  renderSections();
+  switchTab(SECTIONS[0].id);
 }
 
 /* ── RENDER _newProducts BELONGING TO A CATEGORY (Bug Fix 2 + Feature 4) ── */
