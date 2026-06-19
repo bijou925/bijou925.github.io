@@ -739,6 +739,10 @@
     "argollas-finas": {
       "label": "Argollas Finas",
       "img": "media/argollas-finas-par.png"
+    },
+    "argollas-gruesas": {
+      "label": "Argollas Gruesas",
+      "img": "media/argollas-gruesas-detalle.png"
     }
   },
   "AR0554": {
@@ -777,5 +781,11 @@
   },
   "AR1057__1": {
     "price": 30000
+  },
+  "AR0460": {
+    "price": 60000
+  },
+  "AR0878": {
+    "price": 70000
   }
 }
