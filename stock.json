@@ -292,16 +292,6 @@
     },
     {
       "_added": true,
-      "name": "Cuff cruz",
-      "code": "AR0878",
-      "category": "argollas-gruesas",
-      "productType": "fixed",
-      "img": "media/ar0878.png",
-      "price": 70,
-      "stock": true
-    },
-    {
-      "_added": true,
       "name": "Rulette colgante",
       "code": "AR0001",
       "category": "variados",
@@ -617,28 +607,6 @@
     },
     {
       "_added": true,
-      "name": "sdadaw",
-      "code": "wadwasd",
-      "category": "collar",
-      "productType": "fixed",
-      "img": "",
-      "_order": 0,
-      "price": 21312,
-      "stock": true
-    },
-    {
-      "_added": true,
-      "name": "dasda",
-      "code": "dsdas",
-      "category": "argollas-finas",
-      "productType": "fixed",
-      "img": "",
-      "_order": 0,
-      "price": 243123,
-      "stock": true
-    },
-    {
-      "_added": true,
       "name": "312312",
       "code": "2321312",
       "category": "argollas-gruesas",
@@ -646,17 +614,6 @@
       "img": "",
       "_order": 1,
       "price": 32321321,
-      "stock": true
-    },
-    {
-      "_added": true,
-      "name": "21321",
-      "code": "321312",
-      "category": "collar",
-      "productType": "fixed",
-      "img": "",
-      "_order": 1,
-      "price": 21312312,
       "stock": true
     }
   ],
