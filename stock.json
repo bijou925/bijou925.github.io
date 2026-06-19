@@ -754,6 +754,34 @@
     "argollas-gruesas": {
       "label": "Argollas Gruesas",
       "img": "media/argollas-gruesas-detalle.png"
+    },
+    "esclavas": {
+      "label": "Esclavas",
+      "img": "media/pulseras-esclavas-set-tamanos.png"
+    },
+    "rolo": {
+      "label": "Pulseras Rolo",
+      "img": "media/pulsera-rolo-N000-x19-x21-PUL001-PUL008.png"
+    },
+    "pulseras": {
+      "label": "Pulseras",
+      "img": ""
+    },
+    "susanos": {
+      "label": "Susanos",
+      "img": "media/aritos-susano-par-1.png"
+    },
+    "criollos": {
+      "label": "Criollos",
+      "img": "media/aritos-criollos-pares.png"
+    },
+    "perlas": {
+      "label": "Perlas Pegadas",
+      "img": "media/aritos-perlas-pegadas-detalle-1.png"
+    },
+    "bolitas": {
+      "label": "Bolitas de Plata",
+      "img": "media/aritos-bolita-plata-par.png"
     }
   },
   "AR0554": {
