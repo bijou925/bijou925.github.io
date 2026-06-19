@@ -235,30 +235,6 @@
     },
     {
       "_added": true,
-      "name": "arito prueba",
-      "code": "ss",
-      "category": "variados",
-      "productType": "sizes",
-      "img": "",
-      "_order": 7,
-      "sizes": [
-        {
-          "l": "sad",
-          "p": 1231
-        },
-        {
-          "l": "asdasd",
-          "p": 12312312
-        },
-        {
-          "l": "dadas",
-          "p": 131231
-        }
-      ],
-      "stock": true
-    },
-    {
-      "_added": true,
       "name": "Medio sin fin simple",
       "code": "AR0909",
       "category": "variados",
@@ -603,17 +579,6 @@
       "productType": "fixed",
       "img": "media/plp0433.png",
       "price": 40000,
-      "stock": true
-    },
-    {
-      "_added": true,
-      "name": "312312",
-      "code": "2321312",
-      "category": "argollas-gruesas",
-      "productType": "fixed",
-      "img": "",
-      "_order": 1,
-      "price": 32321321,
       "stock": true
     }
   ],
