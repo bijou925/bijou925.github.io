@@ -1849,9 +1849,24 @@ function renderNewProducts(){
     });
 
   Object.entries(byCat).forEach(([catId, prods]) => {
-    // Resolve target grid: known built-in grids or admin-created category grid
-    let targetGrid = $('grid-' + catId) ||          // grid-variados, grid-pulseras
-                     $('grid-newcat-' + catId);     // admin-created category
+    // Resolve target grid: known built-in grids, admin-created grids,
+    // or inject one into the existing section wrapper
+    let targetGrid = $('grid-' + catId) ||
+                     $('grid-newcat-' + catId);
+
+    if(!targetGrid){
+      const section = $(catId);
+      if(section){
+        const g = document.createElement('div');
+        g.id = 'grid-' + catId;
+        g.className = 'pgrid';
+        g.style.marginTop = '2rem';
+        // append inside sec-inner if present, otherwise directly into section
+        const inner = section.querySelector('.sec-inner') || section;
+        inner.appendChild(g);
+        targetGrid = g;
+      }
+    }
 
     prods.forEach(p => {
       const imgSrc = p.img || `media/${p.code.toLowerCase()}.png`;
