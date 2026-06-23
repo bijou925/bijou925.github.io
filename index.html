@@ -1689,7 +1689,7 @@ let _stock = {};
 
 async function loadLiveStock(){
   try {
-    const res = await fetch('https://raw.githubusercontent.com/bijou925/bijou925.github.io/main/stock.json?t=' + Date.now());
+    const res = await fetch('https://bijou925.github.io/stock.json?t=' + Date.now());
     if(res.ok) _stock = await res.json();
   } catch(e){ /* offline or missing — use defaults */ }
 }
