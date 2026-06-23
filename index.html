@@ -1843,7 +1843,6 @@ function renderNewProducts(){
   [...newProds]
     .sort((a,b) => (a._order ?? 9999) - (b._order ?? 9999))
     .forEach(p => {
-      if(_stock[p.code]?.stock === false) return;
       if(!byCat[p.category]) byCat[p.category] = [];
       byCat[p.category].push(p);
     });
