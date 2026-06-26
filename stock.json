@@ -1674,6 +1674,17 @@
       "_order": 14,
       "price": 42000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Angel de la guarda",
+      "code": "DPL00000",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl00000.png",
+      "_order": 15,
+      "price": 46000,
+      "stock": true
     }
   ],
   "PLP0127": {
