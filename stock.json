@@ -1396,6 +1396,17 @@
       "_order": 4,
       "price": 34000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Arbol plata y oro",
+      "code": "DIJ0342",
+      "category": "dijes",
+      "productType": "fixed",
+      "img": "media/dij0342.png",
+      "_order": 5,
+      "price": 48000,
+      "stock": true
     }
   ],
   "PLP0127": {
