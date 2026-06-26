@@ -1503,6 +1503,34 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "San Benito de plata con micropave",
+      "code": "SB0020",
+      "category": "bcc",
+      "productType": "sizes",
+      "img": "media/sb0020.png",
+      "_order": 1,
+      "sizes": [
+        {
+          "l": "1,5 cm",
+          "p": 54000
+        },
+        {
+          "l": "1,7 cm",
+          "p": 60000
+        },
+        {
+          "l": "1,9 cm",
+          "p": 64000
+        },
+        {
+          "l": "2,1 cm",
+          "p": 78000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
