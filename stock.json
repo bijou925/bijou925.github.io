@@ -1006,6 +1006,66 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Rolo",
+      "code": "ARROLO",
+      "category": "argollas-finas",
+      "productType": "sizes",
+      "img": "media/arrolo.png",
+      "_order": 0,
+      "sizes": [
+        {
+          "l": "N°000 x40cm",
+          "p": 108000
+        },
+        {
+          "l": "N°000 x45cm",
+          "p": 110000
+        },
+        {
+          "l": "N°000 x50cm",
+          "p": 120000
+        },
+        {
+          "l": "N°00 x40cm",
+          "p": 120000
+        },
+        {
+          "l": "N°00 x45cm",
+          "p": 132000
+        },
+        {
+          "l": "N°00 x50cm",
+          "p": 140000
+        },
+        {
+          "l": "N°0 x40cm",
+          "p": 142000
+        },
+        {
+          "l": "N°0 x45cm",
+          "p": 152000
+        },
+        {
+          "l": "N°0 x50cm",
+          "p": 172000
+        },
+        {
+          "l": "N°1 x40cm",
+          "p": 192000
+        },
+        {
+          "l": "N°1 x45cm",
+          "p": 200000
+        },
+        {
+          "l": "N°1 x50cm",
+          "p": 220000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
