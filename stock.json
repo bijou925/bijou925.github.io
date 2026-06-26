@@ -1159,6 +1159,17 @@
       "_order": 2,
       "price": 72000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Corazones dobles lisos",
+      "code": "CON0044",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0044.png",
+      "_order": 3,
+      "price": 80000,
+      "stock": true
     }
   ],
   "PLP0127": {
