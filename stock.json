@@ -1597,6 +1597,17 @@
       "_order": 7,
       "price": 38000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cruz ondulada pave",
+      "code": "DPL0915",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0915.png",
+      "_order": 8,
+      "price": 62000,
+      "stock": true
     }
   ],
   "PLP0127": {
