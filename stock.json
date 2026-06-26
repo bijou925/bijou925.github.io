@@ -958,6 +958,54 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Plata y oro",
+      "code": "ARPYO",
+      "category": "collares",
+      "productType": "sizes",
+      "img": "media/arpyo.png",
+      "_order": 7,
+      "sizes": [
+        {
+          "l": "N°1 x45cm",
+          "p": 56000
+        },
+        {
+          "l": "N°1 x50cm",
+          "p": 56000
+        },
+        {
+          "l": "N°1 x60cm",
+          "p": 68000
+        },
+        {
+          "l": "N°2 x45cm",
+          "p": 74000
+        },
+        {
+          "l": "N°2 x50cm",
+          "p": 74000
+        },
+        {
+          "l": "N°2 x60cm",
+          "p": 88000
+        },
+        {
+          "l": "N°3 x45cm",
+          "p": 92000
+        },
+        {
+          "l": "N°3 x50cm",
+          "p": 92000
+        },
+        {
+          "l": "N°3 x60cm",
+          "p": 110000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
