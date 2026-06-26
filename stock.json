@@ -1275,6 +1275,17 @@
       "_order": 18,
       "price": 80000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Apaisado",
+      "code": "CON0262",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0262.png",
+      "_order": 19,
+      "price": 42000,
+      "stock": true
     }
   ],
   "PLP0127": {
