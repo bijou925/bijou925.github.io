@@ -1718,6 +1718,17 @@
       "_order": 18,
       "price": 30000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "San Rafael de plata y cristal",
+      "code": "DLPCRIS",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dlpcris.png",
+      "_order": 19,
+      "price": 46000,
+      "stock": true
     }
   ],
   "PLP0127": {
