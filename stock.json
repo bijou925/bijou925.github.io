@@ -1242,6 +1242,17 @@
       "_order": 15,
       "price": 36000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Ramita",
+      "code": "CON0288",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0288.png",
+      "_order": 16,
+      "price": 66000,
+      "stock": true
     }
   ],
   "PLP0127": {
