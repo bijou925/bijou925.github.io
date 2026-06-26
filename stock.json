@@ -615,6 +615,17 @@
       "_order": 12,
       "price": 40000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cuff mini",
+      "code": "AR0903",
+      "category": "cuff",
+      "productType": "fixed",
+      "img": "media/ar0903.png",
+      "_order": 0,
+      "price": 38000,
+      "stock": true
     }
   ],
   "PLP0127": {
