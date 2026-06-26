@@ -637,6 +637,17 @@
       "_order": 1,
       "price": 50000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cuff cruz",
+      "code": "AR0878",
+      "category": "cuff",
+      "productType": "fixed",
+      "img": "media/ar0878.png",
+      "_order": 2,
+      "price": 60000,
+      "stock": true
     }
   ],
   "PLP0127": {
