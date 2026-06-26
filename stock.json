@@ -914,6 +914,50 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Veneciana",
+      "code": "ARVEN",
+      "category": "collares",
+      "productType": "sizes",
+      "img": "media/arven.png",
+      "_order": 6,
+      "sizes": [
+        {
+          "l": "Hilo 10 x40cm",
+          "p": 24000
+        },
+        {
+          "l": "Hilo 12 x40cm",
+          "p": 28000
+        },
+        {
+          "l": "Hilo 15 x40cm",
+          "p": 36000
+        },
+        {
+          "l": "Hilo 12 x45cm",
+          "p": 34000
+        },
+        {
+          "l": "Hilo 15x45cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 10 x50cm",
+          "p": 28000
+        },
+        {
+          "l": "Hilo 12 x50cm",
+          "p": 34000
+        },
+        {
+          "l": "Hilo 15 x50cm",
+          "p": 46000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
