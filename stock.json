@@ -1429,6 +1429,30 @@
       "_order": 7,
       "price": 28000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Barrita para grabar",
+      "code": "DIJG",
+      "category": "dijes",
+      "productType": "sizes",
+      "img": "media/dijg.png",
+      "_order": 8,
+      "sizes": [
+        {
+          "l": "Largo 2cm",
+          "p": 30000
+        },
+        {
+          "l": "Largo 2,5cm",
+          "p": 34000
+        },
+        {
+          "l": "Largo 3cm",
+          "p": 40000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
