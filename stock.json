@@ -226,39 +226,6 @@
     },
     {
       "_added": true,
-      "name": "Hexagono de perla",
-      "code": "AR0554",
-      "category": "variados",
-      "productType": "fixed",
-      "img": "media/ar0554.png",
-      "price": 48,
-      "stock": true,
-      "_order": 9
-    },
-    {
-      "_added": true,
-      "name": "Colgante flor de perla",
-      "code": "AR0849",
-      "category": "variados",
-      "productType": "fixed",
-      "img": "media/ar0849.png",
-      "price": 48,
-      "stock": true,
-      "_order": 10
-    },
-    {
-      "_added": true,
-      "name": "Rulette colgante",
-      "code": "AR0001",
-      "category": "variados",
-      "productType": "fixed",
-      "img": "media/ar0001.png",
-      "price": 70,
-      "stock": true,
-      "_order": 11
-    },
-    {
-      "_added": true,
       "name": "Grumet",
       "code": "GRUMET",
       "category": "pulseras",
@@ -658,6 +625,38 @@
       "img": "media/ar00000.png",
       "_order": 0,
       "price": 32000,
+      "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Rulette colgante",
+      "code": "ARRULETTE",
+      "category": "colgantes",
+      "productType": "sizes",
+      "img": "media/arrulette.png",
+      "_order": 1,
+      "sizes": [
+        {
+          "l": "Verde",
+          "p": 60000
+        },
+        {
+          "l": "Blanco",
+          "p": 60000
+        },
+        {
+          "l": "Azul",
+          "p": 60000
+        },
+        {
+          "l": "Violeta",
+          "p": 60000
+        },
+        {
+          "l": "Rosa",
+          "p": 60000
+        }
+      ],
       "stock": true
     }
   ],
