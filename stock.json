@@ -1214,6 +1214,17 @@
       "_order": 7,
       "price": 40000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Mariposa con nacar",
+      "code": "CON0294",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0294.png",
+      "_order": 8,
+      "price": 50000,
+      "stock": true
     }
   ],
   "PLP0127": {
