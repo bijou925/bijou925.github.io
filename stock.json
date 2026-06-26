@@ -786,6 +786,66 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Singapur",
+      "code": "ARSING",
+      "category": "collares",
+      "productType": "sizes",
+      "img": "media/arsing.png",
+      "_order": 3,
+      "sizes": [
+        {
+          "l": "Hilo 20 x40cm",
+          "p": 24000
+        },
+        {
+          "l": "Hilo 30 x40cm",
+          "p": 36000
+        },
+        {
+          "l": "Hilo 35 x40cm",
+          "p": 52000
+        },
+        {
+          "l": "Hilo 20 x45cm",
+          "p": 24000
+        },
+        {
+          "l": "Hilo 25 x45cm",
+          "p": 34000
+        },
+        {
+          "l": "Hilo 30 x45cm",
+          "p": 36000
+        },
+        {
+          "l": "Hilo 40 x45cm",
+          "p": 52000
+        },
+        {
+          "l": "Hilo 20 x50cm",
+          "p": 28000
+        },
+        {
+          "l": "Hilo 25 x50cm",
+          "p": 36000
+        },
+        {
+          "l": "Hilo 30 x50cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 40 x50cm",
+          "p": 60000
+        },
+        {
+          "l": "Hilo 20 x55cm",
+          "p": 28000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
