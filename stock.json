@@ -1575,6 +1575,17 @@
       "_order": 5,
       "price": 34000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cruz pave",
+      "code": "DPL0916",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0916.png",
+      "_order": 6,
+      "price": 52000,
+      "stock": true
     }
   ],
   "PLP0127": {
