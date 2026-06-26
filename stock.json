@@ -694,6 +694,62 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Grumet",
+      "code": "ARGRUM",
+      "category": "collares",
+      "productType": "sizes",
+      "img": "media/argrum.png",
+      "_order": 1,
+      "sizes": [
+        {
+          "l": "Hilo 20 x40cm",
+          "p": 28000
+        },
+        {
+          "l": "Hilo 30 x40cm",
+          "p": 36000
+        },
+        {
+          "l": "Hilo 40 x40cm",
+          "p": 46000
+        },
+        {
+          "l": "Hilo 25 x45cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 30 x45cm",
+          "p": 46000
+        },
+        {
+          "l": "Hilo 40 x45cm",
+          "p": 50000
+        },
+        {
+          "l": "Hilo 20 x50cm",
+          "p": 34000
+        },
+        {
+          "l": "Hilo 30 x50cm",
+          "p": 52000
+        },
+        {
+          "l": "Hilo 40 x50cm",
+          "p": 60000
+        },
+        {
+          "l": "Hilo 30 x60cm",
+          "p": 60000
+        },
+        {
+          "l": "Hilo 40 x60cm",
+          "p": 70000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
