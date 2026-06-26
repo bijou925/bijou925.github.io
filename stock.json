@@ -1330,6 +1330,17 @@
       "_order": 23,
       "price": 42000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Gotita apaisada",
+      "code": "CON0051",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0051.png",
+      "_order": 24,
+      "price": 36000,
+      "stock": true
     }
   ],
   "PLP0127": {
