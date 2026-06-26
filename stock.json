@@ -626,6 +626,17 @@
       "_order": 0,
       "price": 38000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cuff serpiente",
+      "code": "AR0460",
+      "category": "cuff",
+      "productType": "fixed",
+      "img": "media/ar0460.png",
+      "_order": 1,
+      "price": 50000,
+      "stock": true
     }
   ],
   "PLP0127": {
