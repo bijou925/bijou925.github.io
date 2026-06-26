@@ -1209,6 +1209,17 @@
       "_order": 12,
       "price": 60000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Tortuga de mar",
+      "code": "CON0159",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0159.png",
+      "_order": 13,
+      "price": 60000,
+      "stock": true
     }
   ],
   "PLP0127": {
