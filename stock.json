@@ -1231,6 +1231,17 @@
       "_order": 14,
       "price": 42000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Serpiente",
+      "code": "CON0037",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0037.png",
+      "_order": 15,
+      "price": 36000,
+      "stock": true
     }
   ],
   "PLP0127": {
