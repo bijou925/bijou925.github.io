@@ -1247,6 +1247,17 @@
       "_order": 10,
       "price": 60000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Mariposa doble II",
+      "code": "CON0046",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0046.png",
+      "_order": 11,
+      "price": 80000,
+      "stock": true
     }
   ],
   "PLP0127": {
