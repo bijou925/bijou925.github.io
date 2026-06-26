@@ -750,6 +750,42 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Rolito mini",
+      "code": "ARROL",
+      "category": "collares",
+      "productType": "sizes",
+      "img": "media/arrol.png",
+      "_order": 2,
+      "sizes": [
+        {
+          "l": "Hilo 20 x40cm",
+          "p": 28000
+        },
+        {
+          "l": "Hilo 25 x40cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 20 x45cm",
+          "p": 34000
+        },
+        {
+          "l": "Hilo 25 x45cm",
+          "p": 46000
+        },
+        {
+          "l": "Hilo 20 x50cm",
+          "p": 36000
+        },
+        {
+          "l": "Hilo 25 x50cm",
+          "p": 52000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
