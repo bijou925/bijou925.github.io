@@ -648,6 +648,17 @@
       "_order": 2,
       "price": 60000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Perlita colgante",
+      "code": "AR00000",
+      "category": "colgantes",
+      "productType": "fixed",
+      "img": "media/ar00000.png",
+      "_order": 0,
+      "price": 32000,
+      "stock": true
     }
   ],
   "PLP0127": {
