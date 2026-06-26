@@ -1181,6 +1181,17 @@
       "_order": 4,
       "price": 74000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Corazón",
+      "code": "CON0226",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0226.png",
+      "_order": 5,
+      "price": 54000,
+      "stock": true
     }
   ],
   "PLP0127": {
