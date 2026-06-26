@@ -1685,6 +1685,17 @@
       "_order": 15,
       "price": 46000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "San Rafael de plata cuadrado",
+      "code": "DPL0234",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0234.png",
+      "_order": 16,
+      "price": 30000,
+      "stock": true
     }
   ],
   "PLP0127": {
