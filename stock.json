@@ -1169,5 +1169,17 @@
   ],
   "AR0881": {
     "price": 50000
+  },
+  "ARVEN__0": {
+    "stock": false
+  },
+  "ARVEN__1": {
+    "stock": false
+  },
+  "ARVEN__2": {
+    "stock": false
+  },
+  "ARROL__4": {
+    "stock": false
   }
 }
