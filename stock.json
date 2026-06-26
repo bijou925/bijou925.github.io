@@ -1553,6 +1553,17 @@
       "_order": 3,
       "price": 62000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cruz ondulada",
+      "code": "DPL0523",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0523.png",
+      "_order": 4,
+      "price": 46000,
+      "stock": true
     }
   ],
   "PLP0127": {
