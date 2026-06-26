@@ -1407,6 +1407,17 @@
       "_order": 5,
       "price": 48000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Flor de Liz plata y oro",
+      "code": "DIJ0318",
+      "category": "dijes",
+      "productType": "fixed",
+      "img": "media/dij0318.png",
+      "_order": 6,
+      "price": 34000,
+      "stock": true
     }
   ],
   "PLP0127": {
