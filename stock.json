@@ -1564,6 +1564,17 @@
       "_order": 4,
       "price": 46000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cruz de susanos",
+      "code": "DPL0516",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0516.png",
+      "_order": 5,
+      "price": 34000,
+      "stock": true
     }
   ],
   "PLP0127": {
