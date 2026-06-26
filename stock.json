@@ -1418,6 +1418,17 @@
       "_order": 6,
       "price": 34000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Colibrí plata y oro",
+      "code": "DIJ0719",
+      "category": "dijes",
+      "productType": "fixed",
+      "img": "media/dij0719.png",
+      "_order": 7,
+      "price": 28000,
+      "stock": true
     }
   ],
   "PLP0127": {
