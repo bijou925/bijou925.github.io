@@ -1148,6 +1148,17 @@
       "_order": 1,
       "price": 40000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Susanos en V",
+      "code": "CONO181",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/cono181.png",
+      "_order": 2,
+      "price": 72000,
+      "stock": true
     }
   ],
   "PLP0127": {
