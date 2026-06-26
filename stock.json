@@ -1586,6 +1586,17 @@
       "_order": 6,
       "price": 52000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cruz mediana micropave",
+      "code": "DPL0518",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0518.png",
+      "_order": 7,
+      "price": 38000,
+      "stock": true
     }
   ],
   "PLP0127": {
