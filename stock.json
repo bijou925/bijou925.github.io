@@ -1641,6 +1641,17 @@
       "_order": 11,
       "price": 36000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Virgen María y niña oval",
+      "code": "DPL0441",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0441.png",
+      "_order": 12,
+      "price": 36000,
+      "stock": true
     }
   ],
   "PLP0127": {
