@@ -1236,6 +1236,17 @@
       "_order": 9,
       "price": 50000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Mariposa de perfil",
+      "code": "CON0128",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0128.png",
+      "_order": 10,
+      "price": 60000,
+      "stock": true
     }
   ],
   "PLP0127": {
