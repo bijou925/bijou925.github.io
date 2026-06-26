@@ -535,27 +535,27 @@
       "_order": 16,
       "sizes": [
         {
-          "l": "Nº1 x19cm",
+          "l": "NÂº1 x19cm",
           "p": 34000
         },
         {
-          "l": "Nº2 x19cm",
+          "l": "NÂº2 x19cm",
           "p": 40000
         },
         {
-          "l": "Nº3 x19cm",
+          "l": "NÂº3 x19cm",
           "p": 54000
         },
         {
-          "l": "Nº1 x21cm",
+          "l": "NÂº1 x21cm",
           "p": 26000
         },
         {
-          "l": "Nº2 x21cm",
+          "l": "NÂº2 x21cm",
           "p": 42000
         },
         {
-          "l": "Nº3 x21cm",
+          "l": "NÂº3 x21cm",
           "p": 56000
         }
       ],
@@ -849,7 +849,7 @@
     },
     {
       "_added": true,
-      "name": "Claptón",
+      "name": "ClaptÃ³n",
       "code": "ARCLAP",
       "category": "collares",
       "productType": "sizes",
@@ -885,7 +885,7 @@
     },
     {
       "_added": true,
-      "name": "Turbillón",
+      "name": "TurbillÃ³n",
       "code": "ARTUR",
       "category": "collares",
       "productType": "sizes",
@@ -969,39 +969,39 @@
       "_order": 7,
       "sizes": [
         {
-          "l": "N°1 x45cm",
+          "l": "NÂ°1 x45cm",
           "p": 56000
         },
         {
-          "l": "N°1 x50cm",
+          "l": "NÂ°1 x50cm",
           "p": 56000
         },
         {
-          "l": "N°1 x60cm",
+          "l": "NÂ°1 x60cm",
           "p": 68000
         },
         {
-          "l": "N°2 x45cm",
+          "l": "NÂ°2 x45cm",
           "p": 74000
         },
         {
-          "l": "N°2 x50cm",
+          "l": "NÂ°2 x50cm",
           "p": 74000
         },
         {
-          "l": "N°2 x60cm",
+          "l": "NÂ°2 x60cm",
           "p": 88000
         },
         {
-          "l": "N°3 x45cm",
+          "l": "NÂ°3 x45cm",
           "p": 92000
         },
         {
-          "l": "N°3 x50cm",
+          "l": "NÂ°3 x50cm",
           "p": 92000
         },
         {
-          "l": "N°3 x60cm",
+          "l": "NÂ°3 x60cm",
           "p": 110000
         }
       ],
@@ -1015,6 +1015,66 @@
       "productType": "sizes",
       "img": "media/arrolo.png",
       "_order": 0,
+      "sizes": [
+        {
+          "l": "NÂ°000 x40cm",
+          "p": 108000
+        },
+        {
+          "l": "NÂ°000 x45cm",
+          "p": 110000
+        },
+        {
+          "l": "NÂ°000 x50cm",
+          "p": 120000
+        },
+        {
+          "l": "NÂ°00 x40cm",
+          "p": 120000
+        },
+        {
+          "l": "NÂ°00 x45cm",
+          "p": 132000
+        },
+        {
+          "l": "NÂ°00 x50cm",
+          "p": 140000
+        },
+        {
+          "l": "NÂ°0 x40cm",
+          "p": 142000
+        },
+        {
+          "l": "NÂ°0 x45cm",
+          "p": 152000
+        },
+        {
+          "l": "NÂ°0 x50cm",
+          "p": 172000
+        },
+        {
+          "l": "NÂ°1 x40cm",
+          "p": 192000
+        },
+        {
+          "l": "NÂ°1 x45cm",
+          "p": 200000
+        },
+        {
+          "l": "NÂ°1 x50cm",
+          "p": 220000
+        }
+      ],
+      "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Rolo",
+      "code": "ARROLO",
+      "category": "collares",
+      "productType": "sizes",
+      "img": "media/arrolo.png",
+      "_order": 8,
       "sizes": [
         {
           "l": "N°000 x40cm",
@@ -1033,7 +1093,7 @@
           "p": 120000
         },
         {
-          "l": "N°00 x45cm",
+          "l": "N00 x45cm",
           "p": 132000
         },
         {
