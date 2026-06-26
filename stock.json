@@ -1608,6 +1608,17 @@
       "_order": 8,
       "price": 62000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Virgen María y niña corazón",
+      "code": "DPL0438",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0438.png",
+      "_order": 9,
+      "price": 36000,
+      "stock": true
     }
   ],
   "PLP0127": {
