@@ -1319,6 +1319,17 @@
       "_order": 22,
       "price": 42000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Gotita alargada",
+      "code": "CON0050",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0050.png",
+      "_order": 23,
+      "price": 42000,
+      "stock": true
     }
   ],
   "PLP0127": {
