@@ -1553,6 +1553,11 @@
       "id": "conjuntos",
       "label": "Conjuntos",
       "headerImg": ""
+    },
+    {
+      "id": "dijes",
+      "label": "Dijes",
+      "headerImg": ""
     }
   ],
   "AR0881": {
