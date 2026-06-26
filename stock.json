@@ -1286,6 +1286,17 @@
       "_order": 19,
       "price": 42000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cruz apaisada lisa",
+      "code": "CON0094",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0094.png",
+      "_order": 20,
+      "price": 36000,
+      "stock": true
     }
   ],
   "PLP0127": {
