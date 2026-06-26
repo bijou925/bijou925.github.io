@@ -1475,6 +1475,34 @@
       "_order": 10,
       "price": 60000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "San Benito de plata",
+      "code": "SB0001",
+      "category": "bcc",
+      "productType": "sizes",
+      "img": "media/sb0001.png",
+      "_order": 0,
+      "sizes": [
+        {
+          "l": "8mm",
+          "p": 16000
+        },
+        {
+          "l": "1,1 cm",
+          "p": 28000
+        },
+        {
+          "l": "1,3 cm",
+          "p": 34000
+        },
+        {
+          "l": "1,7 cm",
+          "p": 40000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
