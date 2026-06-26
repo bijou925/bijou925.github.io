@@ -1453,6 +1453,17 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Herradura",
+      "code": "DIJ0943",
+      "category": "dijes",
+      "productType": "fixed",
+      "img": "media/dij0943.png",
+      "_order": 9,
+      "price": 40000,
+      "stock": true
     }
   ],
   "PLP0127": {
