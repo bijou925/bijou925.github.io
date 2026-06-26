@@ -1126,6 +1126,17 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Susano triple",
+      "code": "CONO152",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/cono152.png",
+      "_order": 0,
+      "price": 60000,
+      "stock": true
     }
   ],
   "PLP0127": {
