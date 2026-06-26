@@ -658,6 +658,42 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Alternada 3x1",
+      "code": "ARALT",
+      "category": "collares",
+      "productType": "sizes",
+      "img": "media/aralt.png",
+      "_order": 0,
+      "sizes": [
+        {
+          "l": "Hilo 20 x40cm",
+          "p": 34000
+        },
+        {
+          "l": "Hilo 25 x40cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 20 x45cm",
+          "p": 36000
+        },
+        {
+          "l": "Hilo 35 x45cm",
+          "p": 64000
+        },
+        {
+          "l": "Hilo 20 x50cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 35 x50cm",
+          "p": 70000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
