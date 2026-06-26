@@ -1170,6 +1170,17 @@
       "_order": 3,
       "price": 80000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Corazón de diseño",
+      "code": "CON0225",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0225.png",
+      "_order": 4,
+      "price": 74000,
+      "stock": true
     }
   ],
   "PLP0127": {
