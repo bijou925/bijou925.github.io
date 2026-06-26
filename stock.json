@@ -1464,6 +1464,17 @@
       "_order": 9,
       "price": 40000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Sol azteca",
+      "code": "DIJ0541",
+      "category": "dijes",
+      "productType": "fixed",
+      "img": "media/dij0541.png",
+      "_order": 10,
+      "price": 60000,
+      "stock": true
     }
   ],
   "PLP0127": {
