@@ -1619,6 +1619,17 @@
       "_order": 9,
       "price": 36000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Virgen María y niña cuadrado",
+      "code": "DPL0440",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0440.png",
+      "_order": 10,
+      "price": 36000,
+      "stock": true
     }
   ],
   "PLP0127": {
