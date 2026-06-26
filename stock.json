@@ -1253,6 +1253,17 @@
       "_order": 16,
       "price": 66000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Margaritas",
+      "code": "CON0204",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0204.png",
+      "_order": 17,
+      "price": 90000,
+      "stock": true
     }
   ],
   "PLP0127": {
