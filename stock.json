@@ -1531,6 +1531,17 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Cruz cruzada",
+      "code": "DPL0915",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0915.png",
+      "_order": 2,
+      "price": 62000,
+      "stock": true
     }
   ],
   "PLP0127": {
