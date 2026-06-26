@@ -1352,6 +1352,17 @@
       "_order": 0,
       "price": 36000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Estrella calada",
+      "code": "DIJ1002",
+      "category": "dijes",
+      "productType": "fixed",
+      "img": "media/dij1002.png",
+      "_order": 1,
+      "price": 50000,
+      "stock": true
     }
   ],
   "PLP0127": {
