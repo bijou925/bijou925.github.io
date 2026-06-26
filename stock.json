@@ -1297,6 +1297,17 @@
       "_order": 20,
       "price": 36000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Perlita de rio",
+      "code": "CON0248",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0248.png",
+      "_order": 21,
+      "price": 70000,
+      "stock": true
     }
   ],
   "PLP0127": {
