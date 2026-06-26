@@ -846,6 +846,42 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Claptón",
+      "code": "ARCLAP",
+      "category": "collares",
+      "productType": "sizes",
+      "img": "media/arclap.png",
+      "_order": 4,
+      "sizes": [
+        {
+          "l": "Hilo 10 x40cm",
+          "p": 36000
+        },
+        {
+          "l": "Hilo 15 x40cm",
+          "p": 46000
+        },
+        {
+          "l": "Hilo 10 x45cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 15 x45cm",
+          "p": 52000
+        },
+        {
+          "l": "Hilo 10 x50cm",
+          "p": 50000
+        },
+        {
+          "l": "Hilo 15 x50cm",
+          "p": 60000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
