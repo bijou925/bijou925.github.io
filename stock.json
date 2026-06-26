@@ -1663,6 +1663,17 @@
       "_order": 13,
       "price": 36000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Virgen María y niña redondo cristal",
+      "code": "DPL0445",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0445.png",
+      "_order": 14,
+      "price": 42000,
+      "stock": true
     }
   ],
   "PLP0127": {
