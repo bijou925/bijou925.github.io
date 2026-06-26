@@ -1374,6 +1374,17 @@
       "_order": 2,
       "price": 40000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Estrella de mar",
+      "code": "DIJ00000",
+      "category": "dijes",
+      "productType": "fixed",
+      "img": "media/dij00000.png",
+      "_order": 3,
+      "price": 50000,
+      "stock": true
     }
   ],
   "PLP0127": {
