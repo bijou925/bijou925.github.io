@@ -1385,6 +1385,17 @@
       "_order": 3,
       "price": 50000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Infinito pave",
+      "code": "DIJ0546",
+      "category": "dijes",
+      "productType": "fixed",
+      "img": "media/dij0546.png",
+      "_order": 4,
+      "price": 34000,
+      "stock": true
     }
   ],
   "PLP0127": {
