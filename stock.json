@@ -1203,6 +1203,17 @@
       "_order": 6,
       "price": 44000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Infinito liso",
+      "code": "CON0206",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0206.png",
+      "_order": 7,
+      "price": 40000,
+      "stock": true
     }
   ],
   "PLP0127": {
