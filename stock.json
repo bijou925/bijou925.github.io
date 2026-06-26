@@ -1192,6 +1192,17 @@
       "_order": 5,
       "price": 54000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Infinito mitad pave",
+      "code": "CON0129",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0129.png",
+      "_order": 6,
+      "price": 44000,
+      "stock": true
     }
   ],
   "PLP0127": {
