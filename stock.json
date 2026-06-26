@@ -882,6 +882,38 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Turbillón",
+      "code": "ARTUR",
+      "category": "collares",
+      "productType": "sizes",
+      "img": "media/artur.png",
+      "_order": 5,
+      "sizes": [
+        {
+          "l": "Hilo 25 x40cm",
+          "p": 40000
+        },
+        {
+          "l": "Hilo 45 x40cm",
+          "p": 52000
+        },
+        {
+          "l": "Hilo 30 x45cm",
+          "p": 46000
+        },
+        {
+          "l": "Hilo 25 x50cm",
+          "p": 42000
+        },
+        {
+          "l": "Hilo 45 x50cm",
+          "p": 60000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
