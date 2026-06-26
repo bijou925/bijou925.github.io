@@ -1363,6 +1363,17 @@
       "_order": 1,
       "price": 50000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Clave de sol",
+      "code": "DIJ0892",
+      "category": "dijes",
+      "productType": "fixed",
+      "img": "media/dij0892.png",
+      "_order": 2,
+      "price": 40000,
+      "stock": true
     }
   ],
   "PLP0127": {
