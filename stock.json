@@ -1225,6 +1225,17 @@
       "_order": 8,
       "price": 50000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Mariposa doble",
+      "code": "CON0143",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0143.png",
+      "_order": 9,
+      "price": 50000,
+      "stock": true
     }
   ],
   "PLP0127": {
@@ -1452,6 +1463,9 @@
     "stock": false
   },
   "ARROL__4": {
+    "stock": false
+  },
+  "CON0294": {
     "stock": false
   }
 }
