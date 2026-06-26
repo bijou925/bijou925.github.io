@@ -807,7 +807,13 @@
   "AR0878": {
     "price": 70000
   },
-  "_newCategories": [],
+  "_newCategories": [
+    {
+      "id": "cuff",
+      "label": "Cuffs",
+      "headerImg": ""
+    }
+  ],
   "AR0881": {
     "price": 50000
   }
