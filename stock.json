@@ -557,6 +557,42 @@
         }
       ],
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Aparente plata y oro",
+      "code": "PYOAPA",
+      "category": "pulseras",
+      "productType": "sizes",
+      "img": "media/pyoapa.png",
+      "_order": 16,
+      "sizes": [
+        {
+          "l": "Nº1 x19cm",
+          "p": 34000
+        },
+        {
+          "l": "Nº2 x19cm",
+          "p": 40000
+        },
+        {
+          "l": "Nº3 x19cm",
+          "p": 54000
+        },
+        {
+          "l": "Nº1 x21cm",
+          "p": 26000
+        },
+        {
+          "l": "Nº2 x21cm",
+          "p": 42000
+        },
+        {
+          "l": "Nº3 x21cm",
+          "p": 56000
+        }
+      ],
+      "stock": true
     }
   ],
   "PLP0127": {
