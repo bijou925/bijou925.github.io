@@ -1652,6 +1652,17 @@
       "_order": 12,
       "price": 36000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Virgen María y niña redondo",
+      "code": "DPL0442",
+      "category": "bcc",
+      "productType": "fixed",
+      "img": "media/dpl0442.png",
+      "_order": 13,
+      "price": 36000,
+      "stock": true
     }
   ],
   "PLP0127": {
