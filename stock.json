@@ -1220,6 +1220,17 @@
       "_order": 13,
       "price": 60000,
       "stock": true
+    },
+    {
+      "_added": true,
+      "name": "Estrella de mar fina",
+      "code": "CON0158",
+      "category": "conjuntos",
+      "productType": "fixed",
+      "img": "media/con0158.png",
+      "_order": 14,
+      "price": 42000,
+      "stock": true
     }
   ],
   "PLP0127": {
